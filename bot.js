@@ -8,7 +8,7 @@ let bot = new Eris.CommandClient(hide.token, {
 }, {
     description: "Another Discord Bot",
     owner: "Jacher#9891 (233667448887312385)",
-    prefix: ["..", "<@490810263717675019> ", "<@!490810263717675019> ", "$", ""],
+    prefix: ["..", "<@490810263717675019> ", "<@!490810263717675019> ",],
     defaultHelpCommand: false,
     defaultCommandOptions: {
         cooldown: 1000,
