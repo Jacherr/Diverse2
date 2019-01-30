@@ -1,6 +1,7 @@
 const superagent = require("superagent")
 const bot = require('../../bot.js');
 const utils = require('../../utils/utils.js');
+const config = require('../../config.json')
 
 module.exports = {
     label: '9gag',
@@ -29,7 +30,7 @@ module.exports = {
         let value = await superagent
             .post('https://fapi.wrmsr.io/9gag')
             .set({
-                Authorization: 'Bearer f50b00c829a3269a84a03025c414bb1a',
+                Authorization: config.api,
                 "Content-Type": "application/json"
             })
             .send({
