@@ -46,14 +46,6 @@ module.exports = {
                 }
             } else if (userChoice === 'no u') {
                 return (`Reverse, ${computerChoice} wins!`)
-            } else if (userChoice === 'coal') {
-                return ('Coal wins!')
-            } else if (userChoice === 'ollie') {
-                return ('Ollie wins!')
-            } else if (userChoice === 'joe') {
-                return ('Joe wins!')
-            } else if (userChoice === 'glotch') {
-                return ('Glotch wins!')
             } else {
                 return `${computerChoice} wins!`
             }
