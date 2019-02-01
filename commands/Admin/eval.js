@@ -19,7 +19,7 @@ module.exports = {
             return msg.channel.createMessage(`${err.message}`);
         }
         if (typeof evaled === 'string') {
-            evaled = evaled.replace(bot.token, ':joy:')
+            evaled = evaled.replace(bot.token, '')
         }
         if(evaled == undefined) {
             evaled = 'undefined'
