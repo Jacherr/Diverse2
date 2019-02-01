@@ -233,6 +233,7 @@ module.exports = {
                 msg.addReaction('📬')
                 .catch(err => {
                     msg.channel.createMessage('Check your DMs')
+                    console.log(err)
                 });
             }).catch((err) => {
                 console.log(err);
