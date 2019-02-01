@@ -27,7 +27,7 @@ module.exports = {
                 thumbnail: {
                     url: msg.channel.guild.iconURL
                 },
-                color: message.channel.guild.roles.size && message.channel.guild.roles.filter(i => i.color).length ? message.channel.guild.roles.filter(i => i.color).map(i => i).sort((a, b) => b.position - a.position)[0].color : undefined,
+                color: msg.channel.guild.roles.size && msg.channel.guild.roles.filter(i => i.color).length ? msg.channel.guild.roles.filter(i => i.color).map(i => i).sort((a, b) => b.position - a.position)[0].color : undefined,
                 fields: [
                     {
                         name: 'Region',
