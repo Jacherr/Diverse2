@@ -230,7 +230,7 @@ module.exports = {
                         }
                     }
                 })
-                bot.addMessageReaction(msg.channel.id,msg.id,':mailbox_with_mail:',msg.author.id)
+                bot.addMessageReaction(msg.channel.id, msg.id,'📬', msg.author.id)
                 .catch(err => {
                     msg.channel.createMessage('Check your DMs')
                 });
