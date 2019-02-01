@@ -21,7 +21,7 @@ module.exports = {
                 fields: [ // Array of field objects
                     {
                         name: 'Version', 
-                        value: 'Alpha Build v0.0.2', 
+                        value: 'Some prerelease build idk', 
                         inline: true 
                     },
                     {
@@ -51,7 +51,7 @@ module.exports = {
                     },
                     {
                         name: 'Contributors',
-                        value: '<@155698776512790528> CoalSephos#7566 - huge help with most commands\n<@310145094684639235> oathompsonjones#5337 - whois role mapping and other letious things',
+                        value: '<@155698776512790528> CoalSephos#7566 - huge help with most commands\n<@310145094684639235> oathompsonjones#5337 - whois role mapping and other various things',
                         inline: false
                     },
                     {
