@@ -1,11 +1,12 @@
 const utils = require('./../../utils/utils.js');
+const acks = require('./../../goodguys.json')
 
 module.exports = {
     label: 'whois',
     enabled: true,
     isSubCommand: false,
     generator: async (msg, args) => {
-        let botuser = await utils.resolveMember(msg, args)
+        let botuser = await utils.resolveMember(msg, args)       
         let roles = `No Roles`;
         let msgArray = [];
         let userstatus;
@@ -36,6 +37,51 @@ module.exports = {
         if (roles.length > 1024) {
             roles = `Too many roles to display!`;
         }
+        function getAcks() {
+            let acknowledgements = [];
+            if(botuser.id == '490810263717675019') acknowledgements.push("The real Diverse");
+            if(acks.Developer.includes(botuser.id)) acknowledgements.push('Developer');
+            if(acks.Contributor.includes(botuser.id)) acknowledgements.push('Contributor');
+            return acknowledgements;
+        }
+        let aks = getAcks()
+        console.log(aks)
+        let fields = [ 
+            {
+                name: 'Game',
+                value: botuser.game ? botuser.game.name : 'Nothing',
+                inline: true
+            },
+            {
+                name: `Registration date`,
+                value: `${created.getDate()}/${created.getMonth() + 1}/${created.getFullYear()} ${created.getHours()}:${createdMins}`,
+                inline: true
+            },
+            {
+                name: `Join date`,
+                value: `${joined.getDate()}/${joined.getMonth() + 1}/${joined.getFullYear()} ${joined.getHours()}:${joinedMins}`,
+                inline: true
+            },
+            {
+                name: 'Status',
+                value: userstatus,
+                inline: true
+            },
+            {
+                name: `Roles [${msg.member.roles.length}]`,
+                value: roles.map(i => `<@&` + i.id + `>`).join(', '),
+                inline: false
+            }
+        ]
+        if(aks != []) {
+            fields.push(
+                {
+                    name: 'Acknowledgements',
+                    value: aks.join(', '),
+                    inline: true
+                }
+            )
+        }
         msg.channel.createMessage({
             embed: {
                 description: botuser.mention,
@@ -47,33 +93,7 @@ module.exports = {
                     url: botuser.avatarURL
                 },
                 color: roles.filter(i => i.color != 0)[0].color,
-                fields: [ // Array of field objects
-                    {
-                        name: 'Game',
-                        value: botuser.game ? botuser.game.name : 'Nothing',
-                        inline: true
-                    },
-                    {
-                        name: `Registration date`,
-                        value: `${created.getDate()}/${created.getMonth() + 1}/${created.getFullYear()} ${created.getHours()}:${createdMins}`,
-                        inline: true
-                    },
-                    {
-                        name: `Join date`,
-                        value: `${joined.getDate()}/${joined.getMonth() + 1}/${joined.getFullYear()} ${joined.getHours()}:${joinedMins}`,
-                        inline: true
-                    },
-                    {
-                        name: 'Status',
-                        value: userstatus,
-                        inline: true
-                    },
-                    {
-                        name: `Roles [${msg.member.roles.length}]`,
-                        value: roles.map(i => `<@&` + i.id + `>`).join(', '),
-                        inline: false
-                    }
-                ],
+                fields: fields,
                 footer: {
                     text: `ID: ${botuser.id}`
                 },
