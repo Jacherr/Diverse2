@@ -31,7 +31,7 @@ module.exports = {
         if (botuser.roles.length > 0) {
             roles = botuser.roles;
             roles.forEach(r => msgArray.push(msg.channel.guild.roles.get(r)));
-            roles = msgArray.sort((a, b) => { return b.position - a.position; }).map(i => `<@&` + i.id + `>`)
+            roles = msgArray.sort((a, b) => { return b.position - a.position; })
         }
         if (roles.length > 1024) {
             roles = `Too many roles to display!`;
@@ -46,7 +46,7 @@ module.exports = {
                 thumbnail: {
                     url: botuser.avatarURL
                 },
-                color: roles.filter(i => i.color)[0],
+                color: roles.filter(i => i.color != 0)[0].color,
                 fields: [ // Array of field objects
                     {
                         name: 'Game',
@@ -70,7 +70,7 @@ module.exports = {
                     },
                     {
                         name: `Roles [${msg.member.roles.length}]`,
-                        value: roles.join(', '),
+                        value: roles.map(i => `<@&` + i.id + `>`).join(', '),
                         inline: false
                     }
                 ],
