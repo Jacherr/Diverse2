@@ -14,7 +14,7 @@ let bot = new Eris.CommandClient(hide.token, {
         cooldown: 1000,
         guildOnly: true,
         cooldownMessage: function (msg) {
-            msg.channel.createMessage(`${msg.author.mention} Please use commands a little slower.`).then(m => {
+            msg.channel.createMessage(`${msg.author.mention}, please use commands a little slower.`).then(m => {
                 setTimeout(() => m.delete(), 5000);
             });
         },
