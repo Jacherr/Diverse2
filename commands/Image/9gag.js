@@ -18,14 +18,14 @@ module.exports = {
             files.push(msg.member.avatarURL)
         } else if(botuser) {
             files.push(botuser.avatarURL)
-        } else if(msg.attachments) {
+        } else if(msg.attachments > 0) {
             msg.attachments.forEach(element => {
                 files.push(element)
             });
         } else if(args) {
             files.push(args[0])
         }
-        
+        console.log(msg.attachments)
     
         let value = await superagent
             .post('https://fapi.wrmsr.io/9gag')
