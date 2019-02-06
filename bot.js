@@ -22,4 +22,3 @@ let bot = new Eris.CommandClient(hide.token, {
 });
 
 module.exports = bot;
-#
