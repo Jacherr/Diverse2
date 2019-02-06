@@ -39,13 +39,13 @@ module.exports = {
         }
         function getAcks() {
             let acknowledgements = [];
-            if(botuser.id == '490810263717675019') acknowledgements.push("The real Diverse");
+            if(botuser.id == '490810263717675019') acknowledgements.push("The Real Diverse");
             if(acks.Developer.includes(botuser.id)) acknowledgements.push('Developer');
             if(acks.Contributor.includes(botuser.id)) acknowledgements.push('Contributor');
+            if(acks.CoolGuy.includes(botuser.id)) acknowledgements.push('Cool guy');
             return acknowledgements;
         }
         let aks = getAcks()
-        console.log(aks)
         let fields = [ 
             {
                 name: 'Game',
@@ -73,7 +73,7 @@ module.exports = {
                 inline: false
             }
         ]
-        if(aks != []) {
+        if(aks.length > 0) {
             fields.push(
                 {
                     name: 'Acknowledgements',
