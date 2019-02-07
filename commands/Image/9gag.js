@@ -25,7 +25,8 @@ module.exports = {
         } else if(args) {
             files.push(args[0])
         }
-        console.log(msg.attachments)
+
+        msg.channel.createMessage(msg.attachments.toString())
     
         let value = await superagent
             .post('https://fapi.wrmsr.io/9gag')
