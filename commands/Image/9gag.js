@@ -19,8 +19,8 @@ module.exports = {
         } else if(botuser) {
             files.push(botuser.avatarURL)
         } else if(msg.attachments > 0) {
-            msg.attachments.forEach(element => {
-                files.push(element)
+            msg.attachments.forEach(attachment => {
+                files.push(attachment)
             });
         } else if(args) {
             files.push(args[0])
@@ -42,7 +42,7 @@ module.exports = {
                 }
                 else {
                     message.delete();
-                    msg.channel.createMessage(`${Date.now() - start}ms`, { file: response.body, name: `perfection.png` });
+                    msg.channel.createMessage(`${Date.now() - start}ms`, { file: response.body, name: `9gag.png` });
                 };
             });
     },
