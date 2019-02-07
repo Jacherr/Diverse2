@@ -105,6 +105,6 @@ module.exports = {
         description: 'Check a user\'s information',
         fullDescription: 'Displays information about a user (or yourself).',
         aliases: ['who', 'userinfo', 'whomst', 'whomstve', 'whomstve\'d'],
-        usage: 'mention, ID, username or nickname'
+        usage: '..whois [mention, ID, username or nickname]'
     }
 };

@@ -8,7 +8,7 @@ module.exports = {
     generator: async (msg, args) => {
         exec(args.join(' '), (err, stdout, stderr) => {
             if (err) {
-                return msg.channel.createMessage(`\`error\`\n\`\`\`bash\n${err}\`\`\``);
+                return msg.channel.createMessage(`\`\`\`bash\n${err}\`\`\``);
             };
             if (stdout.length > 2000) {
                 return msg.channel.createMessage('Response too long');
