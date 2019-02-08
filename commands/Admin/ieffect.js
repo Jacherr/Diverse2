@@ -4,14 +4,16 @@ const utils = require('../../utils/utils.js');
 const config = require('../../config.json')
 
 module.exports = {
-    label: '9gag',
+    label: 'feffect',
     enabled: true,
     isSubcommand: false,
     generator: async (msg, args) => {
         let message = await msg.channel.createMessage('Processing, please wait...');
         msg.channel.sendTyping()
         let files = [];
-        let botuser = await utils.resolveMember(msg, args, true);
+        let user = []
+        user.push(args[1])
+        let botuser = await utils.resolveMember(msg, user, true);
 
         if(msg.attachments.length > 0) {
             msg.attachments.forEach(attachment => {
@@ -26,7 +28,7 @@ module.exports = {
         }
     
         let value = await superagent
-            .post('https://fapi.wrmsr.io/9gag')
+            .post(`https://fapi.wrmsr.io/${args[0]}`)
             .set({
                 Authorization: config.api,
                 "Content-Type": "application/json"
@@ -40,14 +42,17 @@ module.exports = {
                 }
                 else {
                     message.delete();
-                    msg.channel.createMessage(` `,{ file: response.body, name: `9gag.png` });
+                    msg.channel.createMessage(` `,{ file: response.body, name: `output.png` });
                 };
             });
     },
     options: {
-        description: 'Via 9gag.com',
-        fullDescription: 'Overlays \'Via 9gag.com\' on image',
-        usage: '..9gag <url|user mention/id/username| >',
-        aliases: ['9g']
+        description: 'Apply any API image effect to command',
+        fullDescription: 'Apply any API image effect to command',
+        usage: '..feffect [attachment etc] [effect]',
+        aliases: ['fe'],
+        requirements: {
+            userIDs: ['233667448887312385', '155698776512790528']
+        }
     }
-}
+};

@@ -10,7 +10,6 @@ module.exports = {
     generator: async (msg, args) => {
         let message = await msg.channel.createMessage('Processing, please wait...');
         msg.channel.sendTyping()
-        let start = Date.now();
         let files = [];
         let botuser = await utils.resolveMember(msg, args, true);
         if(msg.attachments.length > 0) {
