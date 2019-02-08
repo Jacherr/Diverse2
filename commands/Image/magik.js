@@ -1,10 +1,5 @@
-const superagent = require("superagent")
-const bot = require('../../bot.js');
-const utils = require('../../utils/utils.js');
-const config = require('../../config.json')
-
 module.exports = {
-    label: '9gag',
+    label: 'magik',
     enabled: true,
     isSubcommand: false,
     generator: async (msg, args) => {
@@ -25,30 +20,33 @@ module.exports = {
         } else if(args) {
             files.push(args[0])
         }
-    
         let value = await superagent
-            .post('https://fapi.wrmsr.io/9gag')
+            .post('https://fapi.wrmsr.io/evalmagik')
+            .accept('image/gif')
+            .buffer(true)
+            .parse(superagent.parse.image)
             .set({
-                Authorization: config.api,
+                Authorization: hide.fapikey,
                 "Content-Type": "application/json"
             })
             .send({
+                "args": {
+                    text: ['-liquid-rescale', '50%', '-liquid-rescale', '150%']
+                },
                 "images": files
             })
             .end((err, response) => {
-                if (err) {
-                    message.edit(`${err.toString()}`);
-                }
+                if (err) return message.edit(`AAAAaaaaa! ${err.toString()}`);
                 else {
                     message.delete();
-                    msg.channel.createMessage(`${Date.now() - start}ms`, { file: response.body, name: `9gag.png` });
+                    msg.channel.createMessage(`That took too long... \`${Date.now() - start}ms\``, { file: response.body, name: `gmagik.gif` });
                 };
             });
     },
     options: {
-        description: 'Via 9gag.com',
-        fullDescription: 'Overlays \'Via 9gag.com\' on image',
-        usage: '..9gag <url|user mention/id/username| >',
-        aliases: ['9g']
+        description: 'Applies a magik effecto to an image',
+        fullDescription: 'Distorts input image by applying a magik effect to it',
+        usage: '..magik [attachment|image url|user]',
+        aliases: ['magic', 'magick'],
     }
-}
+};

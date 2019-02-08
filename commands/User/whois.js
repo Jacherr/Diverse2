@@ -6,6 +6,7 @@ module.exports = {
     enabled: true,
     isSubCommand: false,
     generator: async (msg, args) => {
+        let color = 0xb9bbbe
         let botuser = await utils.resolveMember(msg, args)       
         let roles = `No Roles`;
         let msgArray = [];
@@ -82,6 +83,11 @@ module.exports = {
                 }
             )
         }
+
+        if(roles.filter(i => i.color != 0)[0].color != undefined) {
+            color = roles.filter(i => i.color != 0)[0].color
+        }
+        
         msg.channel.createMessage({
             embed: {
                 description: botuser.mention,
@@ -92,7 +98,7 @@ module.exports = {
                 thumbnail: {
                     url: botuser.avatarURL
                 },
-                color: roles.filter(i => i.color != 0)[0].color,
+                color: color,
                 fields: fields,
                 footer: {
                     text: `ID: ${botuser.id}`
