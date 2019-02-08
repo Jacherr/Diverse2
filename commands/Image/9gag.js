@@ -41,7 +41,7 @@ module.exports = {
                 }
                 else {
                     message.delete();
-                    msg.channel.createMessage({ file: response.body, name: `9gag.png` });
+                    msg.channel.createMessage(` `,{ file: response.body, name: `9gag.png` });
                 };
             });
     },

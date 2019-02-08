@@ -44,7 +44,7 @@ module.exports = {
                 if (err) return message.edit(`${err.toString()}`);
                 else {
                     message.delete();
-                    msg.channel.createMessage({ file: response.body, name: `magik.gif` });
+                    msg.channel.createMessage(` `,{ file: response.body, name: `magik.gif` });
                 };
             });
     },
