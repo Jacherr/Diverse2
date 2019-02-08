@@ -28,6 +28,34 @@ function resolveMember(msg, args, send) {
     return botuser;
 }
 
+function splitMessage(message, len) {
+    const msgArray = [];
+    if (!message) {
+        return [];
+    }
+    if (Array.isArray(message)) {
+        message = message.join("\n");
+    }
+    if (message.length > len) {
+        let str = "";
+        let pos;
+        while (message.length > 0) {
+            pos = message.length > len ? message.lastIndexOf("\n", len) : message.length;
+            if (pos > len) {
+                pos = len;
+            }
+            str = message.substr(0, pos);
+            message = message.substr(pos);
+            msgArray.push(str);
+        }
+    }
+    else {
+        msgArray.push(message);
+    }
+    return msgArray;
+}
+
 module.exports = {
-    resolveMember: resolveMember
+    resolveMember: resolveMember,
+    splitMessage : splitMessage
 };
