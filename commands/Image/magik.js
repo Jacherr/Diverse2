@@ -1,3 +1,8 @@
+const superagent = require("superagent")
+const bot = require('../../bot.js');
+const utils = require('../../utils/utils.js');
+const config = require('../../config.json')
+
 module.exports = {
     label: 'magik',
     enabled: true,
@@ -26,7 +31,7 @@ module.exports = {
             .buffer(true)
             .parse(superagent.parse.image)
             .set({
-                Authorization: hide.fapikey,
+                Authorization: config.api,
                 "Content-Type": "application/json"
             })
             .send({
@@ -36,15 +41,15 @@ module.exports = {
                 "images": files
             })
             .end((err, response) => {
-                if (err) return message.edit(`AAAAaaaaa! ${err.toString()}`);
+                if (err) return message.edit(`${err.toString()}`);
                 else {
                     message.delete();
-                    msg.channel.createMessage(`That took too long... \`${Date.now() - start}ms\``, { file: response.body, name: `gmagik.gif` });
+                    msg.channel.createMessage({ file: response.body, name: `magik.gif` });
                 };
             });
     },
     options: {
-        description: 'Applies a magik effecto to an image',
+        description: 'Applies a magik effect to an image',
         fullDescription: 'Distorts input image by applying a magik effect to it',
         usage: '..magik [attachment|image url|user]',
         aliases: ['magic', 'magick'],
