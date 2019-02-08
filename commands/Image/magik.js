@@ -13,7 +13,6 @@ module.exports = {
         let start = Date.now();
         let files = [];
         let botuser = await utils.resolveMember(msg, args, true);
-
         if(msg.attachments.length > 0) {
             msg.attachments.forEach(attachment => {
                 files.push(attachment.url)
@@ -24,6 +23,16 @@ module.exports = {
             files.push(botuser.avatarURL)
         } else if(args) {
             files.push(args[0])
+        }
+        let gif
+        let size
+        let extension = files[0].split('.').pop();
+        if(extension.startsWith('png') || extension.startsWith('jpeg') || extension.startsWith('jpg')) {
+             gif = false
+             size = "1024x1024"
+        } else {
+             gif = true
+             size = "150x150"
         }
         let value = await superagent
             .post('https://fapi.wrmsr.io/evalmagik')
@@ -36,15 +45,20 @@ module.exports = {
             })
             .send({
                 "args": {
-                    text: ['-liquid-rescale', '50%', '-liquid-rescale', '150%']
+                    text: ['-resize', size, '-liquid-rescale', '50%', '-liquid-rescale', '150%'],
+                    "gif": gif
                 },
-                "images": files
+                "images": files                             
             })
             .end((err, response) => {
                 if (err) return message.edit(`${err.toString()}`);
                 else {
                     message.delete();
-                    msg.channel.createMessage(` `,{ file: response.body, name: `magik.gif` });
+                    if(extension.startsWith('png') || extension.startsWith('jpeg') || extension.startsWith('jpg')) {
+                        msg.channel.createMessage(` `,{ file: response.body, name: `magik.png` });
+                    } else {
+                        msg.channel.createMessage(` `,{ file: response.body, name: `magik.gif` });
+                    }                   
                 };
             });
     },
