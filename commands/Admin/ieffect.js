@@ -15,16 +15,17 @@ module.exports = {
         user.push(args[1])
         let botuser = await utils.resolveMember(msg, user, true);
 
+        if(!args[1]) botuser = undefined
         if(msg.attachments.length > 0) {
             msg.attachments.forEach(attachment => {
                 files.push(attachment.url)
             });
-        } else if(!botuser && !args && !msg.attachments) {
+        } else if(!botuser && !args[1] && msg.attachments.length == 0) {
             files.push(msg.member.avatarURL)
-        } else if(botuser && args) {
+        } else if(botuser && args[1]) {
             files.push(botuser.avatarURL)
-        } else if(args) {
-            files.push(args[0])
+        } else if(args[1] && !botuser) {
+            files.push(args[1])
         }
     
         let value = await superagent
