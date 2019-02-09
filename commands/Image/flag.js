@@ -14,8 +14,8 @@ module.exports = {
         let user = []
         user.push(args[1])
         let botuser = await utils.resolveMember(msg, user, true);
-        if(args[0] != 'uk' && args[0] != 'ussr' && args[0] != 'gay') {
-            return msg.channel.createMessage(`Invalid flag! You can choose: \`ussr, gay, uk\`, you chose ${args[0]}`)
+        if(args[0] != 'uk' && args[0] != 'ussr' && args[0] != 'gay' && args[0] != 'trans') {
+            return msg.channel.createMessage(`Invalid flag! You can choose: \`ussr, gay, uk, trans\`, you chose ${args[0]}`)
         }
         if(!args[1]) botuser = undefined
         if(msg.attachments.length > 0) {
