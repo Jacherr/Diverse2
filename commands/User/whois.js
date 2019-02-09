@@ -30,8 +30,10 @@ module.exports = {
         } else if (botuser.status === "offline") {
             userstatus = "Offline/Invisible"
         }
+        let totalRoles;
         if (botuser.roles.length > 0) {
             roles = botuser.roles;
+            totalRoles = roles.map(i => `<@&` + i.id + `>`).length,
             roles.forEach(r => msgArray.push(msg.channel.guild.roles.get(r)));
             roles = msgArray.sort((a, b) => { return b.position - a.position; })
         }
@@ -69,7 +71,7 @@ module.exports = {
                 inline: true
             },
             {
-                name: `Roles [${msg.member.roles.length}]`,
+                name: `Roles [${totalRoles}]`,
                 value: roles.map(i => `<@&` + i.id + `>`).join(', '),
                 inline: false
             }
