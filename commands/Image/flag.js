@@ -17,18 +17,18 @@ module.exports = {
         if(args[0] != 'uk' && args[0] != 'ussr' && args[0] != 'gay') {
             return msg.channel.createMessage(`Invalid flag! You can choose: \`ussr, gay, uk\`, you chose ${args[0]}`)
         }
+        if(!args[1]) botuser = undefined
         if(msg.attachments.length > 0) {
             msg.attachments.forEach(attachment => {
                 files.push(attachment.url)
             });
-        } else if(!botuser && !args && !msg.attachments) {
+        } else if(!botuser && !args[1] && msg.attachments.length == 0) {
             files.push(msg.member.avatarURL)
-        } else if(botuser && args) {
+        } else if(botuser && args[1]) {
             files.push(botuser.avatarURL)
-        } else if(args) {
-            files.push(args[0])
+        } else if(args[1] && !botuser) {
+            files.push(args[1])
         }
-    
         let value = await superagent
             .post(`https://fapi.wrmsr.io/${args[0]}`)
             .set({
