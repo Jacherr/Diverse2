@@ -47,7 +47,7 @@ module.exports = {
     options: {
         description: 'Turns an image into an emoji mosaic',
         fullDescription: 'Replaces the image with a twitter emoji mosaic version',
-        usage: '..emojimosaic <url|user mention/id/username| >',
+        usage: '..emojimosaic [attachment|image url|user]',
         aliases: ['e2m', 'em']
     }
 }

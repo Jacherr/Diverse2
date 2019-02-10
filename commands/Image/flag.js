@@ -51,6 +51,6 @@ module.exports = {
     options: {
         description: 'Overlays a semi-opaque flag over image',
         fullDescription: 'Overlays a semi-opaque flag over an image.',
-        usage: '..flag [uk|gay|ussr] [user|attachment|image url]',
+        usage: '..flag [uk|gay|ussr] [attachment|image url|user]',
     }
 };

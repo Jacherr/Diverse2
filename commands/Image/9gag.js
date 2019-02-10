@@ -47,7 +47,7 @@ module.exports = {
     options: {
         description: 'Via 9gag.com',
         fullDescription: 'Overlays \'Via 9gag.com\' on image',
-        usage: '..9gag <url|user mention/id/username| >',
+        usage: '..9gag [attachment|image url|user]',
         aliases: ['9g']
     }
 }
