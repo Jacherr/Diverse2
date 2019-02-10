@@ -4,31 +4,29 @@ const utils = require('../../utils/utils.js');
 const config = require('../../config.json')
 
 module.exports = {
-    label: 'feffect',
+    label: 'emojimosaic',
     enabled: true,
     isSubcommand: false,
     generator: async (msg, args) => {
         let message = await msg.channel.createMessage('Processing, please wait...');
         msg.channel.sendTyping()
         let files = [];
-        let user = []
-        user.push(args[1])
-        let botuser = await utils.resolveMember(msg, user, true);
-        if(!args[1]) botuser = undefined
+        let botuser = await utils.resolveMember(msg, args, true);
+
         if(msg.attachments.length > 0) {
             msg.attachments.forEach(attachment => {
                 files.push(attachment.url)
             });
-        } else if(!botuser && !args[1] && msg.attachments.length == 0) {
+        } else if(!botuser && !args && !msg.attachments) {
             files.push(msg.member.avatarURL)
-        } else if(botuser && args[1]) {
+        } else if(botuser && args) {
             files.push(botuser.avatarURL)
-        } else if(args[1] && !botuser) {
-            files.push(args[1])
+        } else if(args) {
+            files.push(args[0])
         }
-
+    
         let value = await superagent
-            .post(`https://fapi.wrmsr.io/${args[0]}`)
+            .post('https://fapi.wrmsr.io/emojimosaic')
             .set({
                 Authorization: config.api,
                 "Content-Type": "application/json"
@@ -42,17 +40,14 @@ module.exports = {
                 }
                 else {
                     message.delete();
-                    msg.channel.createMessage(` `,{ file: response.body, name: `output.png` });
+                    msg.channel.createMessage(` `,{ file: response.body, name: `9gag.png` });
                 };
             });
     },
     options: {
-        description: 'Apply any API image effect to command',
-        fullDescription: 'Apply any API image effect to command',
-        usage: '..feffect [effect] [attachment whatever lol]',
-        aliases: ['fe'],
-        requirements: {
-            userIDs: ['233667448887312385', '155698776512790528']
-        }
+        description: 'Turns an image into an emoji mosaic',
+        fullDescription: 'Replaces the image with a twitter emoji mosaic version',
+        usage: '..emojimosaic <url|user mention/id/username| >',
+        aliases: ['e2m', 'em']
     }
-};
+}
