@@ -13,7 +13,7 @@ module.exports = {
         let files = [];
         let user = []
         user.push(args[1])
-        let botuser = await utils.resolveMember(msg, user, true);
+        let botuser = await utils.resolveMember(msg, user, false);
         if(!args[1]) botuser = undefined
         if(msg.attachments.length > 0) {
             msg.attachments.forEach(attachment => {
@@ -26,7 +26,6 @@ module.exports = {
         } else if(args[1] && !botuser) {
             files.push(args[1])
         }
-
         let value = await superagent
             .post(`https://fapi.wrmsr.io/${args[0]}`)
             .set({
@@ -42,10 +41,10 @@ module.exports = {
                 }
                 else {
                     message.delete();
-                    msg.channel.createMessage(` `,{ file: response.body, name: `output.png` });
+                    msg.channel.createMessage(` `,{ file: response.body, name: `${args[0]}.png` });
                 };
             });
-    },
+        },
     options: {
         description: 'Apply any API image effect to command',
         fullDescription: 'Apply any API image effect to command',
