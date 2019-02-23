@@ -1,3 +1,5 @@
+
+
 module.exports = {
     label: 'search',
     enabled: true,

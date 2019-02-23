@@ -1,3 +1,5 @@
+const bot = require('../../bot.js')
+
 module.exports = {
     label: 'username',
     enabled: true,
