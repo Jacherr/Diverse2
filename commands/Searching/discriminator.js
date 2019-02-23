@@ -7,16 +7,19 @@ module.exports = {
     generator: async (msg, args) => {
         let discrimSearch = args[0] ? args[0] : msg.member.user.discriminator
         if(discrimSearch.length != 4) return msg.channel.createMessage("Not a valid discriminator!")
+        let b = []
         let a = bot.users.filter(i => i.discriminator == discrimSearch && i.username != msg.member.user.username).map(i => `${i.username}#${i.discriminator}`).join('\n')
         if(a.length > 10) {
-            let b = []
+            b = []
             for(let i = 0; i < 10; i++) {
                 b.push(a[i])
             }
+        } else {
+            b = a
         }
         msg.channel.createMessage({
             embed: {
-                description: a,
+                description: b,
                 color: 0x22BB55
             }
         });
