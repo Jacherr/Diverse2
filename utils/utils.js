@@ -67,5 +67,6 @@ function getRandomColor() {
   
 module.exports = {
     resolveMember: resolveMember,
-    splitMessage : splitMessage
+    splitMessage : splitMessage,
+    getRandomColor : getRandomColor
 };
