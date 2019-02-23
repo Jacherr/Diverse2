@@ -17,6 +17,7 @@ module.exports = {
         } else {
             b = a
         }
+        if(b.length < 1) return msg.channel.createMessage('No results!')
         msg.channel.createMessage({
             embed: {
                 description: b.join('\n'),
