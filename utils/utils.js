@@ -57,11 +57,10 @@ function splitMessage(message, len) {
 
 function getRandomColor() {
     var letters = '0123456789ABCDEF';
-    var color = 0xF;
+    var color = '#';
     for (var i = 0; i < 6; i++) {
       color += letters[Math.floor(Math.random() * 16)];
     }
-    color = color.splice(0,2) + color.splice(4,6)
     return color;
   }
   
