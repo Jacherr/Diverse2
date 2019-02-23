@@ -15,5 +15,5 @@ module.exports = {
         usage: '..search [property]',
         aliases: ['s'],
     },
-    subcommands: [require('./discriminator.js')]
+    subcommands: [require('./discriminator.js'), require('./username.js')]
 };

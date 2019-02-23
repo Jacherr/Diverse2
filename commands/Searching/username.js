@@ -1,7 +1,7 @@
 module.exports = {
     label: 'username',
     enabled: true,
-    isSubcommand: false,
+    isSubcommand: true,
     generator: async (msg, args) => {
         let discrimSearch = args[0] ? args[0] : msg.member.user.username
         if (discrimSearch.length > 32 || discrimSearch.length < 2) return msg.channel.createMessage("Not a valid username!")
