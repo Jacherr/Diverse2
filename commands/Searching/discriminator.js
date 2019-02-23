@@ -2,7 +2,7 @@ const bot = require('../../bot.js')
 const utils = require('../../utils/utils.js')
 
 module.exports = {
-    label: 'discrim',
+    label: 'discriminator',
     enabled: true,
     isSubcommand: true,
     generator: async (msg, args) => {
