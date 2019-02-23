@@ -5,7 +5,7 @@ module.exports = {
     generator: async (msg, args) => {
         msg.channel.createMessage( { 
             embed: {
-                
+                description: `\`..search discriminator [discrim]\`\n\`..search username [username]\`\n\`..search role [role]\`\n`
             }
         });
     },
