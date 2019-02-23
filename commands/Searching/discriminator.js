@@ -8,9 +8,9 @@ module.exports = {
         let discrimSearch = args[0] ? args[0] : msg.member.user.discriminator
         if(discrimSearch.length != 4) return msg.channel.createMessage("Not a valid discriminator!")
         let a = bot.users.filter(i => i.discriminator == discrimSearch && i.username != msg.member.user.username).map(i => `${i.username}#${i.discriminator}`).join('\n')
-        if(a.length > 20) {
+        if(a.length > 10) {
             let b = []
-            for(let i = 0; i < 20; i++) {
+            for(let i = 0; i < 10; i++) {
                 b.push(a[i])
             }
         }
