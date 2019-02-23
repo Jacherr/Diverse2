@@ -8,11 +8,11 @@ module.exports = {
         let discrimSearch = args[0] ? args[0] : msg.member.user.username
         if (discrimSearch.length > 32 || discrimSearch.length < 2) return msg.channel.createMessage("Not a valid username!")
         let b = []
-        let a = bot.users.filter(i => i.username == discrimSearch && i.username != msg.member.user.username).map(i => `${i.username}#${i.discriminator}`)
+        let a = bot.users.filter(i => i.username == discrimSearch.toLowerCase() && i.username != msg.member.user.username).map(i => `${i.username}#${i.discriminator}`)
         if (a.length > 30) {
             b = []
             for (let i = 0; i < 30; i++) {
-                b.push(a[i].toLowerCase())
+                b.push(a[i])
             }
         } else {
             b = a
