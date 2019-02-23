@@ -21,7 +21,7 @@ module.exports = {
         msg.channel.createMessage({
             embed: {
                 description: b.join('\n'),
-                color: utils.getRandomColor()
+                color: Math.floor(Math.random() * 16777214) + 1
             }
         });
     },
