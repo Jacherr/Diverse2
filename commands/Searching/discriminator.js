@@ -4,7 +4,7 @@ const utils = require('../../utils/utils.js')
 module.exports = {
     label: 'discrim',
     enabled: true,
-    isSubcommand: false,
+    isSubcommand: true,
     generator: async (msg, args) => {
         let discrimSearch = args[0] ? args[0] : msg.member.user.discriminator
         if(discrimSearch.length != 4) return msg.channel.createMessage("Not a valid discriminator!")
