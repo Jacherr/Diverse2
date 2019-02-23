@@ -1,4 +1,5 @@
 const bot = require('../../bot.js')
+const utils = require('../../utils/utils.js')
 
 module.exports = {
     label: 'discrim',
