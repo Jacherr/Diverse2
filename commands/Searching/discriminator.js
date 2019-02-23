@@ -19,7 +19,7 @@ module.exports = {
         }
         msg.channel.createMessage({
             embed: {
-                description: b.join(', '),
+                description: b.join(',\n'),
                 color: 0x22BB55
             }
         });
