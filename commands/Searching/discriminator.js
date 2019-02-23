@@ -12,7 +12,7 @@ module.exports = {
         if(a.length > 30) {
             b = []
             for(let i = 0; i < 30; i++) {
-                b.push(a[i])
+                b.push(a[i].toLowerCase())
             }
         } else {
             b = a
