@@ -51,12 +51,12 @@ module.exports = {
                     },
                     {
                         name: 'Contributors',
-                        value: '<@155698776512790528> CoalSephos#7566 - huge help with most commands\n<@310145094684639235> oathompsonjones#5337 - whois role mapping and other various things',
+                        value: '<@155698776512790528> CoalSephos#7566 - huge help with most commands\n<@310145094684639235> oathompsonjones#5337 - whois role mapping and other various things\n<@179908288337412096> KhaaZ#0001 - helping me learn javascript back when i was a scrub at it',
                         inline: false
                     },
                     {
                         name: 'Uptime',
-                        value: `${uptime.getUTCHours()} Hours, ${uptime.getMinutes()} Mins, and ${uptime.getSeconds()} Secs`,
+                        value: `${uptime.getUTCHours()} hours, ${uptime.getMinutes()} minutes, and ${uptime.getSeconds()} seconds`,
                         inline: false
                     }
                 ]}
