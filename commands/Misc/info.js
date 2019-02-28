@@ -56,7 +56,7 @@ module.exports = {
                     },
                     {
                         name: 'Uptime',
-                        value: `${uptime.getUTCHours()} hours, ${uptime.getMinutes()} minutes, and ${uptime.getSeconds()} seconds`,
+                        value: `${uptime.getUTCDate() - 1} days, ${uptime.getUTCHours()} hours, ${uptime.getMinutes()} minutes, and ${uptime.getSeconds()} seconds`,
                         inline: false
                     }
                 ]}
