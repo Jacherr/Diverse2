@@ -6,7 +6,11 @@ module.exports = {
     enabled: true,
     isSubcommand: false,
     generator: async (msg, args) => {
-        con.query(args.join(" "))
+        con.query(args.join(" "), (err, rows) => {
+            if(err) return msg.channel.createMessage(err.message) 
+            else if(rows) return msg.channel.send(rows)
+            else return 
+        })
     },
     options: {
         description: 'Query the database',
