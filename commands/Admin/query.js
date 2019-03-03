@@ -8,7 +8,7 @@ module.exports = {
     generator: async (msg, args) => {
         con.query(args.join(" "), (err, rows) => {
             if(err) return msg.channel.createMessage(err.message) 
-            else if(rows) return msg.channel.createMessage(rows)
+            else if(rows) return msg.channel.createMessage(rows[0])
             else return 
         })
     },
