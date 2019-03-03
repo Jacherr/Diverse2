@@ -1,4 +1,5 @@
 const dbdetails = require('../../config.json')
+const mysql = require('mysql')
 const con = mysql.createConnection(dbdetails.mysql)
 module.exports = {
     label: 'query',
