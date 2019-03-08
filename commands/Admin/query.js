@@ -6,7 +6,8 @@ module.exports = {
     enabled: true,
     isSubcommand: false,
     generator: async (msg, args) => {
-        con.query(args.join(" "), (err, rows) => {
+        let query = args.join(" ")
+        con.query(query, (err, rows) => {
             if(err) return msg.channel.createMessage(err.message) 
             else if(rows) return msg.channel.createMessage(rows[0])
             else return 
