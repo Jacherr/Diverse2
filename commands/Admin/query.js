@@ -1,11 +1,12 @@
 const dbdetails = require('../../config.json')
-const mysql = require('mysql')
-const con = mysql.createConnection(dbdetails.mysql)
+let mysql = require('mysql')
+let con
 module.exports = {
     label: 'query',
     enabled: true,
     isSubcommand: false,
     generator: async (msg, args) => {
+        con = mysql.createConnection(dbdetails.mysql)
         let query = args.join(" ")
         con.query(query, (err, rows) => {
             if(err) return msg.channel.createMessage(err.message) 
