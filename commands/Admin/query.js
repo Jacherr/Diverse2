@@ -10,7 +10,7 @@ module.exports = {
         let query = args.join(" ")
         con.query(query, (err, rows) => {
             if(err) return msg.channel.createMessage(err.message) 
-            else if(rows != undefined) return msg.channel.createMessage(rows.toString())
+            else if(rows != undefined) return msg.channel.createMessage(require('util').inspect(rows))
             else return
         })
     },
