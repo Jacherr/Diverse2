@@ -63,7 +63,7 @@ function db(db, query) {
     else return 'not valid'
     con.query(query, (err, rows) => {
         if(err) return err.message
-        else if(rows != undefined) return require('util').inspect(rows)
+        else if(rows != undefined) return `${require('util').inspect(rows)}`
         else return 'something went wrong'
     })
 }
