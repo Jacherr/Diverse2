@@ -44,6 +44,10 @@ async function loadCommands() {
 process.on('uncaughtException', (err) => { console.log(err.stack) });
 process.on('unhandledRejection', (err) => { console.log(err.stack) });
 
+bot.on('messageCreate', (msg) => {
+    console.log(msg)
+});
+
 bot.on('ready', () => {
     console.log('Ready!');
     bot.editStatus(null, {
