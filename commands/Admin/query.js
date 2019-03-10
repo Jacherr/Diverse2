@@ -10,6 +10,9 @@ module.exports = {
         else if(args[0] == 'xpdb') con = mysql.createConnection(dbdetails.mysqlxp)
         else return msg.channel.createMessage('not valid')
         console.log(args)
+        args.shift()
+        console.log(args)
+        let query = args.join(" ")
         con.query(query, (err, rows) => {
             if(err) return msg.channel.createMessage(err.message) 
             else if(rows != undefined) return msg.channel.createMessage(require('util').inspect(rows))
