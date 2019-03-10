@@ -9,7 +9,7 @@ module.exports = {
         if(args[0] == 'test') con = mysql.createConnection(dbdetails.mysqltest)
         else if(args[0] == 'xp') con = mysql.createConnection(dbdetails.mysqlxp)
         else return msg.channel.createMessage('not valid')
-        let query = args.shift()
+        let query = args.splice(0, 1)
         console.log(query)
         con.query(query, (err, rows) => {
             if(err) return msg.channel.createMessage(err.message) 
