@@ -55,6 +55,18 @@ function splitMessage(message, len) {
     return msgArray;
 }
 
+function db(db, query) {
+    let mysql = require('mysql')
+    if(db == 'test') con = mysql.createConnection(dbdetails.mysqltest)
+    else if(db == 'xpdb') con = mysql.createConnection(dbdetails.mysqlxp)
+    else return 'not valid'
+    con.query(query, (err, rows) => {
+        if(err) return err.message
+        else if(rows != undefined) return require('util').inspect(rows)
+        else return
+    })
+}
+
 function getRandomColor() {
     var letters = '0123456789ABCDEF';
     var color = '#';
