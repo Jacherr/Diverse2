@@ -57,7 +57,7 @@ function splitMessage(message, len) {
 
 function db(db, query) {
     let mysql = require('mysql')
-    let dbdeatils = require('../config.json')
+    let dbdetils = require('../config.json')
     if(db == 'test') con = mysql.createConnection(dbdetails.mysqltest)
     else if(db == 'xpdb') con = mysql.createConnection(dbdetails.mysqlxp)
     else return 'not valid'
