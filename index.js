@@ -3,7 +3,7 @@ const each = require('async-each');
 const bot = require('./bot.js');
 const glob = require('glob-promise')
 const mysql = require('mysql')
-const xp = require('config.json')
+const xp = require('./config.json')
 
 async function loadCommands() {
     try {       
@@ -48,7 +48,7 @@ process.on('unhandledRejection', (err) => { console.log(err.stack) });
 
 bot.on('messageCreate', (msg) => {
     let con = mysql.createConnection(xp.mysqlxp)
-    
+
 });
 
 bot.on('ready', () => {
