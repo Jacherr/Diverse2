@@ -30,7 +30,7 @@ module.exports = {
             }
             else {
                 message.delete();
-                if (response.text > 1900) {
+                if (response.text.length > 1900) {
                     let responsetext = utils.splitMessage(response.text, 1900)
                     if (responsetext[2]) {
                         return msg.channel.createMessage("Response is too long")
