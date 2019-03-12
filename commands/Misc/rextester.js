@@ -16,7 +16,7 @@ module.exports = {
             for(let i = 2; i < args.length; i++){  
                 if(args[i].endsWith(';')) {
                     console.log(`${i}: ${args[i]}`)
-                    imports.push(args[i].substr(0, args[i].length - 2))
+                    imports.push(args[i].substr(0, args[i].length - 1))
                     i = args.length + 1
                 } else {
                     imports.push(args[i])
@@ -29,11 +29,11 @@ module.exports = {
             for(let j = 0; j < imports.length - 1; j++){
                 args.shift()
             }
-        }
-        console.log(imports)
+        } 
         let message = await msg.channel.createMessage("Processing, please wait...")
         let code = args.join(" ")
-        console.log(code)
+        console.log(`Imports: ${imports}`)
+        console.log(`Code: ${code}`)
         if(language == 'c#') {
             code = `namespace Rextester\n
                     {\n
