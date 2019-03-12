@@ -15,7 +15,6 @@ module.exports = {
         if(args[1] == 'import') {
             for(let i = 2; i < args.length; i++){  
                 if(args[i].endsWith(';')) {
-                    console.log(`${i}: ${args[i]}`)
                     imports.push(args[i].substr(0, args[i].length - 1))
                     i = args.length + 1
                 } else {
@@ -47,6 +46,7 @@ module.exports = {
                 code = `imports ${element}\n${code}`
             });
         }
+        console.log(code)
         let value = await superagent
         .post('https://fapi.wrmsr.io/rextester')
         .set({
