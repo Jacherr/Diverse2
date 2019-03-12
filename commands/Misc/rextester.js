@@ -24,11 +24,7 @@ module.exports = {
             };
         }
         let language = args[0]
-        if(imports != []) {
-            for(let j = 0; j < imports.length - 1; j++){
-                args.shift()
-            }
-        }
+        args.splice(0, imports.length + 1)
         let message = await msg.channel.createMessage("Processing, please wait...")
         let code = args.join(" ")
         console.log(`Imports size: ${imports.length}`)
