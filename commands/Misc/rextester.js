@@ -29,7 +29,7 @@ module.exports = {
             }
             else {
                 message.delete();
-                msg.channel.createMessage(response);
+                msg.channel.createMessage(response.toString());
             };
         });
     },
