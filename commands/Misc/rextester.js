@@ -33,6 +33,7 @@ module.exports = {
         console.log(imports)
         let message = await msg.channel.createMessage("Processing, please wait...")
         let code = args.join(" ")
+        console.log(code)
         if(language == 'c#') {
             code = `namespace Rextester\n
                     {\n
