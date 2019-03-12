@@ -15,6 +15,18 @@ module.exports = {
         args.shift()
         let message = await msg.channel.createMessage("Processing, please wait...")
         let code = args.join(" ")
+        if(language == 'c#') {
+            code = `namespace Rextester\n
+                    {\n
+                        public class Program\n
+                        {\n
+                            public static void Main(string[] args)\n
+                            {\n
+                                ${code}
+                            }\n
+                        }\n
+                    }`
+        }
         let value = await superagent
         .post('https://fapi.wrmsr.io/rextester')
         .set({
