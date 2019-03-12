@@ -9,7 +9,7 @@ module.exports = {
         if(args[0] == 'help') return msg.channel.createMessage(`https://hb.wrmsr.io/siraqazugo`)
         let language = args[0]
         args.shift()
-        let message = msg.channel.createMessage("Processing, please wait...")
+        let message = await msg.channel.createMessage("Processing, please wait...")
         let code = args.join(" ")
         let value = await superagent
         .post('https://fapi.wrmsr.io/rextester')
