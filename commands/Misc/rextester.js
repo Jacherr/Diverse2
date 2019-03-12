@@ -21,7 +21,6 @@ module.exports = {
                 } else {
                     imports.push(args[i])
                 }
-                i++
             };
         }
         let language = args[0]
@@ -29,7 +28,7 @@ module.exports = {
             for(let j = 0; j < imports.length - 1; j++){
                 args.shift()
             }
-        } 
+        }
         let message = await msg.channel.createMessage("Processing, please wait...")
         let code = args.join(" ")
         console.log(`Imports: ${imports}`)
