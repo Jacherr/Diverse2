@@ -31,6 +31,7 @@ module.exports = {
         }
         let message = await msg.channel.createMessage("Processing, please wait...")
         let code = args.join(" ")
+        console.log(`Imports size: ${imports.length}`)
         console.log(`Imports: ${imports}`)
         console.log(`Code: ${code}`)
         if(language == 'c#') {
