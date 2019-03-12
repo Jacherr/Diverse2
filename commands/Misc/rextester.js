@@ -15,6 +15,7 @@ module.exports = {
         if(args[1] == 'import') {
             let i = 2
             args.forEach(element => {
+                console.log(args[i])
                 if(element.endsWith(';')) {
                     return imports.push(args[i].substr(0, args[i].length - 2))
                 } else {
