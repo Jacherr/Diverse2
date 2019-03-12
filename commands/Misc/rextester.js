@@ -16,7 +16,8 @@ module.exports = {
             for(let i = 2; i < args.length; i++){  
                 if(args[i].endsWith(';')) {
                     console.log(`${i}: ${args[i]}`)
-                    return imports.push(args[i].substr(0, args[i].length - 2))
+                    imports.push(args[i].substr(0, args[i].length - 2))
+                    i = args.length + 1
                 } else {
                     imports.push(args[i])
                 }
