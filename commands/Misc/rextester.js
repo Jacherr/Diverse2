@@ -7,7 +7,10 @@ module.exports = {
     isSubcommand: false,
     generator: async (msg, args) => {
         if(args[0] == undefined) return msg.channel.createMessage(`\`..rex help\``)
-        if(args[0] == 'help') return msg.channel.createMessage(`https://hb.wrmsr.io/siraqazugo`)
+        if(args[0] == 'help') {
+            msg.channel.createMessage("Known working language codes: \`node\`,\`py\`,\`ruby\`,\`lisp\`,\`swift\`,\`lua\`,\`bash\`,\`mysql\`,\`py2\`")
+            return msg.channel.createMessage(`https://hb.wrmsr.io/siraqazugo for a complete list`)
+        }
         let language = args[0]
         args.shift()
         let message = await msg.channel.createMessage("Processing, please wait...")
