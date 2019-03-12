@@ -1,4 +1,5 @@
 const config = require('../../config.json')
+const utils = require('../../utils/utils.js')
 const superagent = require('superagent')
 module.exports = {
     label: 'rextester',
@@ -29,7 +30,18 @@ module.exports = {
             }
             else {
                 message.delete();
-                msg.channel.createMessage(`\`\`\`${response.text}\`\`\``);
+                if (response.text > 1900) {
+                    let responsetext = utils.splitMessage(response.text, 1900)
+                    if (responsetext[2]) {
+                        return msg.channel.createMessage("Response is too long")
+                    }
+                    return responsetext.forEach((message) => {
+                        msg.channel.createMessage(`\`\`\`js\n${message}\`\`\``);
+                        return;
+                    })
+                } else {
+                    msg.channel.createMessage(`\`\`\`${response.text}\`\`\``)
+                }
             };
         });
     },
