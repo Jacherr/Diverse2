@@ -11,8 +11,25 @@ module.exports = {
             msg.channel.createMessage("Known working language codes: \`node\`,\`py\`,\`ruby\`,\`lisp\`,\`swift\`,\`lua\`,\`bash\`,\`mysql\`,\`py2\`")
             return msg.channel.createMessage(`https://hb.wrmsr.io/siraqazugo for a complete list`)
         }
+        let imports = []
+        if(args[1] == 'import') {
+            let i = 2
+            args.forEach(element => {
+                if(element.endsWith(';')) {
+                    return imports.push(args[i].substr(0, args[i].length - 2))
+                } else {
+                    imports.push(args[i])
+                }
+                i++
+            });
+        }
         let language = args[0]
-        args.shift()
+        if(imports != []) {
+            for(let j = 0; j < imports.length - 1; j++){
+                args.shift()
+            }
+        }
+        console.log(imports)
         let message = await msg.channel.createMessage("Processing, please wait...")
         let code = args.join(" ")
         if(language == 'c#') {
