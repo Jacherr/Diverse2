@@ -13,16 +13,15 @@ module.exports = {
         }
         let imports = []
         if(args[1] == 'import') {
-            let i = 2
-            args.forEach(element => {        
-                if(element.endsWith(';')) {
+            for(let i = 2; i < args.length; i++){  
+                if(args[i].endsWith(';')) {
                     console.log(`${i}: ${args[i]}`)
                     return imports.push(args[i].substr(0, args[i].length - 2))
                 } else {
                     imports.push(args[i])
                 }
                 i++
-            });
+            };
         }
         let language = args[0]
         if(imports != []) {
