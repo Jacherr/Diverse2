@@ -32,9 +32,6 @@ module.exports = {
         
         let message = await msg.channel.createMessage("Processing, please wait...")
         let code = args.join(" ")
-        console.log(`Imports size: ${imports.length}`)
-        console.log(`Imports: ${imports}`)
-        console.log(`Code: ${code}`)
         if(language == 'c#') {
             code = `namespace Rextester\n
                     {\n
@@ -46,6 +43,9 @@ module.exports = {
                             }\n
                         }\n
                     }`
+            imports.forEach(element => {
+                code = `imports ${element}\n${code}`
+            });
         }
         let value = await superagent
         .post('https://fapi.wrmsr.io/rextester')
