@@ -41,9 +41,7 @@ module.exports = {
                             }\n
                         }\n
                     }`
-            imports.forEach(element => {
-                code = `using ${element};\n${code}`
-            });
+            parseImports('using', ';')
         } else if(language == 'java') {
             code = `class Rextester\n
             {\n
@@ -52,10 +50,15 @@ module.exports = {
                     ${code}
                 }\n
             }`
+            parseImports('import', ';')
+        }
+
+        function parseImports(importType, postImport) {
             imports.forEach(element => {
-                code = `import ${element};\n${code}`
+                code = `${importType} ${element}${postImport}\n${code}`
             });
         }
+
         let value = await superagent
         .post('https://fapi.wrmsr.io/rextester')
         .set({
