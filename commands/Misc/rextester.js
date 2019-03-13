@@ -49,7 +49,7 @@ module.exports = {
             }`
             parseImports('import', ';')
         }
-        function getVisualBasic() {
+        function genVisualBasic() {
             code = `         
             Namespace Rextester\n
                 Public Module Program\n
@@ -71,7 +71,10 @@ module.exports = {
             genCSharp()
         } else if(language == 'java') {
             genJava()
+        } else if(language == 'vb') {
+            genVisualBasic()
         }
+
 
         let value = await superagent
         .post('https://fapi.wrmsr.io/rextester')
