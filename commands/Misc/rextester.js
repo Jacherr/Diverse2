@@ -8,6 +8,7 @@ module.exports = {
     generator: async (msg, args) => {
         let imports = []
         let language = args[0]
+        let importLangs = ['vb', 'c#', 'java']
         if(args[0] == undefined) return msg.channel.createMessage(`\`..rex help\``)
         if(args[0] == 'help') return msg.channel.createMessage("https://hb.wrmsr.io/siraqazugo")       
         let message = await msg.channel.createMessage("Processing, please wait...")
@@ -60,7 +61,7 @@ module.exports = {
             End Namespace`
             parseImports('Imports', '')
         }
-        if(args[1] == 'import') {
+        if(args[1] == 'import' && importLangs.includes(language)) {
             fetchImports()
             args.splice(0, imports.length + 2)
         } else {
