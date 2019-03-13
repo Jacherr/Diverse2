@@ -9,16 +9,14 @@ module.exports = {
         let imports = []
         let language = args[0]
         if(args[0] == undefined) return msg.channel.createMessage(`\`..rex help\``)
-        if(args[0] == 'help') {
-            msg.channel.createMessage("Known working language codes: \`node\`,\`py\`,\`ruby\`,\`lisp\`,\`swift\`,\`lua\`,\`bash\`,\`mysql\`,\`py2\`")
-            return msg.channel.createMessage(`https://hb.wrmsr.io/siraqazugo for a complete list`)
-        }
+        if(args[0] == 'help') return msg.channel.createMessage("https://hb.wrmsr.io/siraqazugo")       
+        let message = await msg.channel.createMessage("Processing, please wait...")
         function parseImports(importType, postImport) {
             imports.forEach(element => {
                 code = `${importType} ${element}${postImport}\n${code}`
             });
         }
-        if(args[1] == 'import') {
+        function fetchImports() {
             for(let i = 2; i < args.length; i++){  
                 if(args[i].endsWith(';')) {
                     imports.push(args[i].substr(0, args[i].length - 1))
@@ -29,11 +27,11 @@ module.exports = {
             };
         }
         if(args[1] == 'import') {
+            fetchImports()
             args.splice(0, imports.length + 2)
         } else {
             args.splice(0, 1)
         }
-        let message = await msg.channel.createMessage("Processing, please wait...")
         let code = args.join(" ")
         if(language == 'c#') {
             code = `namespace Rextester\n
