@@ -60,9 +60,6 @@ module.exports = {
             End Namespace`
             parseImports('Imports', '')
         }
-        function genPython3() {
-            parseImports('import', '')
-        }
         if(args[1] == 'import') {
             fetchImports()
             args.splice(0, imports.length + 2)
