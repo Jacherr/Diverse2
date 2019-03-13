@@ -93,6 +93,7 @@ module.exports = {
             }
             else {
                 message.delete();
+                if(response.text.length = 0) return msg.channel.createMessage("No response")
                 if (response.text.length > 1900) {
                     let responsetext = response.text.substr(0, 1900)
                     msg.channel.createMessage(`\`\`\`${responsetext}\`\`\``)
