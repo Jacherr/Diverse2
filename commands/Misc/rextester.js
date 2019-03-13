@@ -28,7 +28,6 @@ module.exports = {
         } else {
             args.splice(0, 1)
         }
-        
         let message = await msg.channel.createMessage("Processing, please wait...")
         let code = args.join(" ")
         if(language == 'c#') {
@@ -45,9 +44,18 @@ module.exports = {
             imports.forEach(element => {
                 code = `using ${element};\n${code}`
             });
+        } else if(language == 'java') {
+            code = `class Rextester\n
+            {\n
+                public static void main(String args[])\n
+                {\n
+                    System.out.println("Hello, World!");\n
+                }\n
+            }`
+            imports.forEach(element => {
+                code = `import ${element};\n${code}`
+            });
         }
-        console.log(imports)
-        msg.channel.createMessage(code)
         let value = await superagent
         .post('https://fapi.wrmsr.io/rextester')
         .set({
