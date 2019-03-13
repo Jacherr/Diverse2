@@ -47,7 +47,7 @@ module.exports = {
             });
         }
         console.log(imports)
-        console.log(code)
+        msg.channel.createMessage(code)
         let value = await superagent
         .post('https://fapi.wrmsr.io/rextester')
         .set({
