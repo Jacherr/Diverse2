@@ -49,7 +49,7 @@ module.exports = {
             {\n
                 public static void main(String args[])\n
                 {\n
-                    System.out.println("Hello, World!");\n
+                    ${code}
                 }\n
             }`
             imports.forEach(element => {
