@@ -26,14 +26,7 @@ module.exports = {
                 }
             };
         }
-        if(args[1] == 'import') {
-            fetchImports()
-            args.splice(0, imports.length + 2)
-        } else {
-            args.splice(0, 1)
-        }
-        let code = args.join(" ")
-        if(language == 'c#') {
+        function genCSharp() {
             code = `namespace Rextester\n
                     {\n
                         public class Program\n
@@ -45,7 +38,8 @@ module.exports = {
                         }\n
                     }`
             parseImports('using', ';')
-        } else if(language == 'java') {
+        }
+        function genJava() {
             code = `class Rextester\n
             {\n
                 public static void main(String args[])\n
@@ -54,6 +48,18 @@ module.exports = {
                 }\n
             }`
             parseImports('import', ';')
+        }
+        if(args[1] == 'import') {
+            fetchImports()
+            args.splice(0, imports.length + 2)
+        } else {
+            args.splice(0, 1)
+        }
+        let code = args.join(" ")
+        if(language == 'c#') {
+            genCSharp()
+        } else if(language == 'java') {
+            genJava()
         }
 
         let value = await superagent
