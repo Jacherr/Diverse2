@@ -60,6 +60,9 @@ module.exports = {
             End Namespace`
             parseImports('Imports', '')
         }
+        function genPython3() {
+            parseImports('import', '')
+        }
         if(args[1] == 'import') {
             fetchImports()
             args.splice(0, imports.length + 2)
@@ -73,8 +76,9 @@ module.exports = {
             genJava()
         } else if(language == 'vb') {
             genVisualBasic()
+        } else if(language == 'py') {
+            genPython3()
         }
-
         let value = await superagent
         .post('https://fapi.wrmsr.io/rextester')
         .set({
