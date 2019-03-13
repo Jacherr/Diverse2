@@ -56,7 +56,6 @@ module.exports = {
                 code = `import ${element};\n${code}`
             });
         }
-        msg.channel.createMessage(code)
         let value = await superagent
         .post('https://fapi.wrmsr.io/rextester')
         .set({
