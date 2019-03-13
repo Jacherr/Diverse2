@@ -73,8 +73,6 @@ module.exports = {
             genJava()
         } else if(language == 'vb') {
             genVisualBasic()
-        } else if(language == 'py') {
-            genPython3()
         }
         let value = await superagent
         .post('https://fapi.wrmsr.io/rextester')
