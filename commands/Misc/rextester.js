@@ -6,12 +6,18 @@ module.exports = {
     enabled: true,
     isSubcommand: false,
     generator: async (msg, args) => {
+        let imports = []
+        let language = args[0]
         if(args[0] == undefined) return msg.channel.createMessage(`\`..rex help\``)
         if(args[0] == 'help') {
             msg.channel.createMessage("Known working language codes: \`node\`,\`py\`,\`ruby\`,\`lisp\`,\`swift\`,\`lua\`,\`bash\`,\`mysql\`,\`py2\`")
             return msg.channel.createMessage(`https://hb.wrmsr.io/siraqazugo for a complete list`)
         }
-        let imports = []
+        function parseImports(importType, postImport) {
+            imports.forEach(element => {
+                code = `${importType} ${element}${postImport}\n${code}`
+            });
+        }
         if(args[1] == 'import') {
             for(let i = 2; i < args.length; i++){  
                 if(args[i].endsWith(';')) {
@@ -22,7 +28,6 @@ module.exports = {
                 }
             };
         }
-        let language = args[0]
         if(args[1] == 'import') {
             args.splice(0, imports.length + 2)
         } else {
@@ -51,12 +56,6 @@ module.exports = {
                 }\n
             }`
             parseImports('import', ';')
-        }
-
-        function parseImports(importType, postImport) {
-            imports.forEach(element => {
-                code = `${importType} ${element}${postImport}\n${code}`
-            });
         }
 
         let value = await superagent
