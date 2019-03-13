@@ -27,6 +27,18 @@ module.exports = {
                 }
             };
         }
+        function removeDuplicates(defaultImports) {
+            let i = 0
+            imports.forEach(element => {
+                if(defaultImports.includes(element)) {
+                    imports.splice(i, 1)
+                }
+                i++
+            });
+            defaultImports.forEach(element => {
+                imports.push(element)
+            })
+        }
         function genCSharp() {
             code = `namespace Rextester\n
                     {\n
@@ -38,6 +50,7 @@ module.exports = {
                             }\n
                         }\n
                     }`
+            removeDuplicates(['System'])
             parseImports('using', ';')
         }
         function genJava() {
