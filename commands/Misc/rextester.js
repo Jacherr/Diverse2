@@ -49,6 +49,17 @@ module.exports = {
             }`
             parseImports('import', ';')
         }
+        function getVisualBasic() {
+            code = `         
+            Namespace Rextester\n
+                Public Module Program\n
+                    Public Sub Main(args() As string)\n
+                        ${code}
+                    End Sub\n
+                End Module\n
+            End Namespace`
+            parseImports('Imports', '')
+        }
         if(args[1] == 'import') {
             fetchImports()
             args.splice(0, imports.length + 2)
