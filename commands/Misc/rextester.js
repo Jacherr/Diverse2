@@ -75,7 +75,6 @@ module.exports = {
             genVisualBasic()
         }
 
-
         let value = await superagent
         .post('https://fapi.wrmsr.io/rextester')
         .set({
@@ -106,7 +105,7 @@ module.exports = {
     options: {
         description: 'Run code via rextester',
         fullDescription: 'Run code via rextester in a range of languages - do \`..rex help\` for a list of supported languages',
-        usage: '..rextester [help|lang] [code]',
+        usage: '..rextester [help|lang] <import [imports];> [code]',
         aliases: ['rex', 'debug'],
     }
 };
