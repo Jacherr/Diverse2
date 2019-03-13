@@ -43,7 +43,7 @@ module.exports = {
                         }\n
                     }`
             imports.forEach(element => {
-                code = `imports ${element};\n${code}`
+                code = `using ${element};\n${code}`
             });
         }
         console.log(imports)
