@@ -46,6 +46,7 @@ module.exports = {
                 code = `imports ${element};\n${code}`
             });
         }
+        console.log(imports)
         console.log(code)
         let value = await superagent
         .post('https://fapi.wrmsr.io/rextester')
