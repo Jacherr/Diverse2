@@ -8,7 +8,7 @@ module.exports = {
     generator: async (msg, args) => {
         let imports = []
         let language
-        if(args[0] != undefined) let language = args[0].toLowerCase()  
+        if(args[0] != undefined) language = args[0].toLowerCase()  
         let importLangs = ['vb', 'visualbasic', '2', 'c#', '1', 'java', '4']
         if(args[0] == undefined) return outputFullHelp()
         if(args[0] == 'list') return msg.channel.createMessage("https://hb.wrmsr.io/siraqazugo")       
