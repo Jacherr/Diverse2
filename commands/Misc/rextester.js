@@ -11,8 +11,38 @@ module.exports = {
         if(args[0] != undefined) language = args[0].toLowerCase()  
         let importLangs = ['vb', 'visualbasic', '2', 'c#', '1', 'java', '4']
         if(args[0] == undefined) return outputFullHelp()
-        if(args[0] == 'list') return msg.channel.createMessage("https://hb.wrmsr.io/siraqazugo")       
+        if(args[0] == 'list') return msg.channel.createMessage("https://hb.wrmsr.io/siraqazugo")
+        if(args[0] == 'imports') return outputDefaultImports()      
         let message = await msg.channel.createMessage("Processing, please wait...")
+        function outputDefaultImports() {
+            msg.channel.createMessage({
+                embed: {
+                    author: {
+                        name: msg.member.username,
+                        icon_url: msg.member.avatarURL
+                    },
+                    thumbnail: {
+                        url: `https://rextester.com/Content/linqdb_logo.png`
+                    },
+                    color: 0x44ff77,
+                    title: `**Rextester default imports**`,
+                    fields: [
+                        {
+                            name: `C#`,
+                            value: `\`System\``,
+                            inline: true
+                        },
+                        {
+                            name: `Python`,
+                            value: `\`math\`, \`random\``
+                        }
+                    ],
+                    footer: {
+                        text: `Duplicate imports are ignored for languages that can parse imports.`
+                    }
+                }
+            })
+        }
         function outputFullHelp() {
             msg.channel.createMessage({
                 embed: {
@@ -34,7 +64,7 @@ module.exports = {
                         },
                         {
                             name: `Examples`,
-                            value: `**For most languages:**\n \`..rextester node console.log('Hello World!')\`\n\`..rextester py print('Hello World')\`\n\n**For C#, Visual Basic and Java:**\n\`..rextester c# import System; Console.WriteLine("Hello World!");\`\n\`..rextester java import java.lang.*; System.out.println("Hello World!");\`\n*Inports are not mandatory for these languages.*`,
+                            value: `**For most languages:**\n \`..rextester node console.log('Hello World!')\`\n\`..rextester py print('Hello World')\`\n\n**For C#, Visual Basic and Java:**\n\`..rextester c# import System; Console.WriteLine("Hello World!");\`\n\`..rextester java import java.lang.*; System.out.println("Hello World!");\`\n*Inports are not mandatory for these languages - in other words, you can completely disregard the \`import\` statement if you want and the code will still run.*`,
                             imline: false
                         },
                         {
