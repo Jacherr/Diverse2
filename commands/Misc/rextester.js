@@ -76,7 +76,7 @@ module.exports = {
         }
         function genPython() {
             imports = ['math']
-            parseImports()
+            parseImports('import', '')
         }
         if(args[1] == 'import' && importLangs.includes(language)) {
             fetchImports()
