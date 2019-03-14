@@ -38,7 +38,7 @@ module.exports = {
                         },
                         {
                             name: `Extra Information`,
-                            value: `- Certain languages have default imports. To see them, try \`..rextester imports\`\n- Don't include a linebreak before your first line of code, or it will break`,
+                            value: `- Certain languages have default imports. To see them, try \`..rextester imports\`\n- Don't include a linebreak before your first line of code, or it will break\n- You can get a full list of supported languages by Rextester with \`..rex list\``,
                             inline: false
                         }
                     ]
