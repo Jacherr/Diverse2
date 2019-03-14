@@ -9,9 +9,42 @@ module.exports = {
         let imports = []
         let language = args[0]
         let importLangs = ['vb', 'visualbasic', '2', 'c#', '1', 'java', '4']
-        if(args[0] == undefined) return msg.channel.createMessage(`\`..rex help\``)
+        if(args[0] == undefined) return outputFullHelp()
         if(args[0] == 'help') return msg.channel.createMessage("https://hb.wrmsr.io/siraqazugo")       
         let message = await msg.channel.createMessage("Processing, please wait...")
+        function outputFullHelp() {
+            msg.channel.createMessage({
+                embeds: {
+                    author: {
+                        name: msg.member.username,
+                        icon_url: msg.member.avatarURL
+                    },
+                    thumbnail: {
+                        url: `https://rextester.com/Content/linqdb_logo.png`
+                    },
+                    color: 0x44ff77,
+                    title: `**Rextester**`,
+                    description: `This command allows you to write and compile code in a variety of languages.`,
+                    fields: [
+                        {
+                            name: `Usage`,
+                            value: `The general usage for all languages is \`..rextester [language] [code], but some languages support imports as well as code and language.\nIn this case, you can use \`..rextester [language] [import <imports>]; [code] and your imports will be parsed for you at the top of the code.`,
+                            inline: false
+                        },
+                        {
+                            name: `Examples`,
+                            value: `**For most languages:**\n \`..rextester node console.log('Hello World!')\n\`..rextester py print('Hello World')\n\n**For C#, Visual Basic and Java:**\n\`..rextester c# import System; Console.WriteLine("Hello World!");\n\`..rextester java import java.lang.*; System.out.println("Hello World!");\n*Inports are not mandatory for these languages.*`,
+                            imline: false
+                        },
+                        {
+                            name: `Extra Information`,
+                            value: `- Certain languages have default imports. To see them, try \`..rextester imports\`\n- Don't include a linebreak before your first line of code, or it will break`,
+                            inline: false
+                        }
+                    ]
+                }
+            })
+        }
         function parseImports(importType, postImport) {
             imports.forEach(element => {
                 code = `${importType} ${element}${postImport}\n${code}`
@@ -125,7 +158,7 @@ module.exports = {
     },
     options: {
         description: 'Run code via rextester',
-        fullDescription: 'Run code via rextester in a range of languages - do \`..rex help\` for a list of supported languages',
+        fullDescription: 'Run code via rextester in a range of languages - do \`..rextester\` for a full help dialogue',
         usage: '..rextester [help|lang] <import [imports];> [code]',
         aliases: ['rex', 'debug'],
     }
