@@ -64,7 +64,7 @@ module.exports = {
                         },
                         {
                             name: `Examples`,
-                            value: `**For most languages:**\n \`..rextester node console.log('Hello World!')\`\n\`..rextester py print('Hello World')\`\n\n**For C#, Visual Basic and Java:**\n\`..rextester c# import System; Console.WriteLine("Hello World!");\`\n\`..rextester java import java.lang.*; System.out.println("Hello World!");\`\n*Inports are not mandatory for these languages - in other words, you can completely disregard the \`import\` statement if you want and the code will still run.*`,
+                            value: `**For most languages:**\n \`..rextester node console.log('Hello World!')\`\n\`..rextester py print('Hello World')\`\n\n**For C#, Visual Basic and Java:**\n\`..rextester c# import System; Console.WriteLine("Hello World!");\`\n\`..rextester java import java.lang.*; System.out.println("Hello World!");\`\n*Imports are not mandatory for these languages - in other words, you can completely disregard the \`import\` statement if you want and the code will still run.*`,
                             imline: false
                         },
                         {
