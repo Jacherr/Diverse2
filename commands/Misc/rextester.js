@@ -14,7 +14,7 @@ module.exports = {
         let message = await msg.channel.createMessage("Processing, please wait...")
         function outputFullHelp() {
             msg.channel.createMessage({
-                embeds: {
+                embed: {
                     author: {
                         name: msg.member.username,
                         icon_url: msg.member.avatarURL
