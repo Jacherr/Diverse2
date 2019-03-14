@@ -85,15 +85,14 @@ module.exports = {
             args.splice(0, 1)
         }
         let code = args.join(" ")
-        switch(language) {
-            case('c#', '1'):
-                genCSharp()
-            case('java','4'):
-                genJava()
-            case('vb','visualbasic','2'):
-                genVisualBasic()
-            case('py','py3','python','python3'):
-                genPython()
+        if(language == 'c#' || language == '1') {
+            genCSharp()
+        } else if(language == 'java' || language == '4') {
+            genJava()
+        } else if(language == 'vb' || language == 'visualbasic' || language == '2') {
+            genVisualBasic()
+        } else if(language == 'py' || language == 'py3' || language == 'python' || language == 'python3' || language == '24') {
+            genPython()
         }
         console.log(code)
         let value = await superagent
