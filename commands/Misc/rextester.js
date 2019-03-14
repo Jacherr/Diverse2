@@ -28,12 +28,12 @@ module.exports = {
                     fields: [
                         {
                             name: `Usage`,
-                            value: `The general usage for all languages is \`..rextester [language] [code], but some languages support imports as well as code and language.\nIn this case, you can use \`..rextester [language] [import <imports>]; [code] and your imports will be parsed for you at the top of the code.`,
+                            value: `The general usage for all languages is \`..rextester [language] [code]\`, but some languages support imports as well as code and language.\nIn this case, you can use \`..rextester [language] [import <imports>]; [code] and your imports will be parsed for you at the top of the code.`,
                             inline: false
                         },
                         {
                             name: `Examples`,
-                            value: `**For most languages:**\n \`..rextester node console.log('Hello World!')\n\`..rextester py print('Hello World')\n\n**For C#, Visual Basic and Java:**\n\`..rextester c# import System; Console.WriteLine("Hello World!");\n\`..rextester java import java.lang.*; System.out.println("Hello World!");\n*Inports are not mandatory for these languages.*`,
+                            value: `**For most languages:**\n \`..rextester node console.log('Hello World!')\`\n\`..rextester py print('Hello World')\`\n\n**For C#, Visual Basic and Java:**\n\`..rextester c# import System; Console.WriteLine("Hello World!");\`\n\`..rextester java import java.lang.*; System.out.println("Hello World!");\`\n*Inports are not mandatory for these languages.*`,
                             imline: false
                         },
                         {
