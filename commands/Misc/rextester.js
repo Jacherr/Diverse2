@@ -95,6 +95,7 @@ module.exports = {
             case('py','py3','python','python3'):
                 genPython()
         }
+        console.log(code)
         let value = await superagent
         .post('https://fapi.wrmsr.io/rextester')
         .set({
