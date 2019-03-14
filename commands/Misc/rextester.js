@@ -12,7 +12,7 @@ module.exports = {
         let importLangs = ['vb', 'visualbasic', '2', 'c#', '1', 'java', '4']
         if(args[0] == undefined) return outputFullHelp()
         if(args[0] == 'list') return msg.channel.createMessage("https://hb.wrmsr.io/siraqazugo")
-        if(args[0] == 'imports') return outputDefaultImports()      
+        if(args[0] == 'imports') return outputDefaultImports()
         let message = await msg.channel.createMessage("Processing, please wait...")
         function outputDefaultImports() {
             msg.channel.createMessage({
@@ -155,7 +155,7 @@ module.exports = {
             genJava()
         } else if(language == 'vb' || language == 'visualbasic' || language == '2') {
             genVisualBasic()
-        } else if(language == 'py' || language == 'py3' || language == 'python' || language == 'python3' || language == '24') {
+        } else if(language == 'py' || language == 'py3' || language == 'python' || language == 'python3' || language == '24' || language == 'python2' || language == 'python2.7' || language == 'py2.7' || language == 'py2') {
             genPython()
         }
         console.log(code)
