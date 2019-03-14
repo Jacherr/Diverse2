@@ -35,6 +35,10 @@ module.exports = {
                         {
                             name: `Python`,
                             value: `\`math\`, \`random\``
+                        },
+                        {
+                            name: `Java`,
+                            value: `\`java.lang.*\``
                         }
                     ],
                     footer: {
@@ -125,6 +129,7 @@ module.exports = {
                     ${code}
                 }\n
             }`
+            removeDuplicates(['java.lang.*'])
             parseImports('import', ';')
         }
         function genVisualBasic() {
@@ -158,7 +163,6 @@ module.exports = {
         } else if(language == 'py' || language == 'py3' || language == 'python' || language == 'python3' || language == '24' || language == 'python2' || language == 'python2.7' || language == 'py2.7' || language == 'py2') {
             genPython()
         }
-        console.log(code)
         let value = await superagent
         .post('https://fapi.wrmsr.io/rextester')
         .set({
