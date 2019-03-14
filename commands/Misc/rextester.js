@@ -88,16 +88,12 @@ module.exports = {
         switch(language) {
             case('c#', '1'):
                 genCSharp()
-                break;
             case('java','4'):
                 genJava()
-                break;
             case('vb','visualbasic','2'):
                 genVisualBasic()
-                break;
             case('py','py3','python','python3'):
                 genPython()
-                break;
         }
         console.log(code)
         let value = await superagent
