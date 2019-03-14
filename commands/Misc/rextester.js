@@ -34,11 +34,13 @@ module.exports = {
                         },
                         {
                             name: `Python`,
-                            value: `\`math\`, \`random\``
+                            value: `\`math\`, \`random\``,
+                            inline: true
                         },
                         {
                             name: `Java`,
-                            value: `\`java.lang.*\``
+                            value: `\`java.lang.*\``,
+                            inline: true
                         }
                     ],
                     footer: {
