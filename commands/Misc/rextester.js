@@ -8,7 +8,7 @@ module.exports = {
     generator: async (msg, args) => {
         let imports = []
         let language = args[0]
-        let importLangs = ['vb', 'c#', 'java']
+        let importLangs = ['vb', 'visualbasic', '2', 'c#', '1', 'java', '4']
         if(args[0] == undefined) return msg.channel.createMessage(`\`..rex help\``)
         if(args[0] == 'help') return msg.channel.createMessage("https://hb.wrmsr.io/siraqazugo")       
         let message = await msg.channel.createMessage("Processing, please wait...")
@@ -74,6 +74,10 @@ module.exports = {
             End Namespace`
             parseImports('Imports', '')
         }
+        function genPython() {
+            imports = ['math']
+            parseImports()
+        }
         if(args[1] == 'import' && importLangs.includes(language)) {
             fetchImports()
             args.splice(0, imports.length + 2)
@@ -81,12 +85,15 @@ module.exports = {
             args.splice(0, 1)
         }
         let code = args.join(" ")
-        if(language == 'c#') {
-            genCSharp()
-        } else if(language == 'java') {
-            genJava()
-        } else if(language == 'vb') {
-            genVisualBasic()
+        switch(language) {
+            case('c#', '1'):
+                genCSharp()
+            case('java','4'):
+                genJava()
+            case('vb','visualbasic','2'):
+                genVisualBasic()
+            case('py','py3','python','python3'):
+                genPython()
         }
         let value = await superagent
         .post('https://fapi.wrmsr.io/rextester')
