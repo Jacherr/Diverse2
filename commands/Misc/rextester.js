@@ -7,10 +7,10 @@ module.exports = {
     isSubcommand: false,
     generator: async (msg, args) => {
         let imports = []
-        let language = args[0]
+        let language = args[0].toLowerCase()
         let importLangs = ['vb', 'visualbasic', '2', 'c#', '1', 'java', '4']
         if(args[0] == undefined) return outputFullHelp()
-        if(args[0] == 'help') return msg.channel.createMessage("https://hb.wrmsr.io/siraqazugo")       
+        if(args[0] == 'list') return msg.channel.createMessage("https://hb.wrmsr.io/siraqazugo")       
         let message = await msg.channel.createMessage("Processing, please wait...")
         function outputFullHelp() {
             msg.channel.createMessage({
