@@ -2,7 +2,7 @@ const languageProperties = [
     {
         name: 'c#',
         importType: 'using',
-        lineBreak = ';',
+        lineBreak: ';',
         defaultImports: ['System'],
         aliases: ['1', 'c#'],
         classDeclaration: `namespace Rextester
