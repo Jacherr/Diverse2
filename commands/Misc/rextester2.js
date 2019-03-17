@@ -60,7 +60,7 @@ module.exports = {
     isSubcommand: false,
     generator: async (msg, args) => {
         let language = args[0];
-        let parseLangs = languageProperties.filter(i => i.classDeclaration != undefined).name;
+        let parseLangs = languageProperties.filter(i => i.classDeclaration != undefined).map(j => j.name);
         let languageObject;
         let imports = [];
         languageProperties.forEach(curobject => {
