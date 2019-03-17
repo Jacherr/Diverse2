@@ -33,7 +33,7 @@ const languageProperties = [
     {
         name: 'vb',
         importType: 'Imports',
-        lineBreak: undefined,
+        lineBreak: '',
         defaultImports: ['System', 'System.Collections.Generic', 'System.Linq', 'System.Text.RegularExpressions'],
         aliases: ['visualbasic', '2', 'vb'],
         classDeclaration: `Namespace Rextester
@@ -47,7 +47,7 @@ const languageProperties = [
     {
         name: 'py',
         importType: 'import',
-        lineBreak: undefined,
+        lineBreak: '',
         defaultImports: ['math', 'random'],
         aliases: ['python', 'python3', 'py3', 'python2.7', 'py2.7', 'py2', 'python2', '5', '24', 'py'],
         classDeclaration: undefined
@@ -86,6 +86,9 @@ module.exports = {
         let code = args.join(" ")
         if(languageObject.classDeclaration != undefined) {
             languageObject.classDeclaration.replace("{{code}}", code)     
+            imports.forEach(element => {
+                code = `${languageObject.importType} ${element}${lineBreak}\n${code}`
+            });
         }
         console.log(code)
         console.log(language)
