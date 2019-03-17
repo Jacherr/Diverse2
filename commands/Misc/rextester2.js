@@ -85,20 +85,11 @@ module.exports = {
         }
         let code = args.join(" ")
         if(languageObject.classDeclaration != undefined) {
-            for(let i = 0; i < languageObject.classDeclaration.length - 8; i++) {
-                let currentPrase = languageObject.classDeclaration[i] + languageObject.classDeclaration[i + 1] + languageObject.classDeclaration[i + 2] + languageObject.classDeclaration[i + 3] + languageObject.classDeclaration[i + 4] + languageObject.classDeclaration[i + 5] + languageObject.classDeclaration[i + 6] + languageObject.classDeclaration[i + 7]
-                if(currentPrase == '{{code}}') {
-                    let currentDec = languageObject.classDeclaration
-                    let control
-                    let control2
-                    control = currentDec.slice(0, i - 1)
-                    control2 = currentDec.slice(i + 8, currentDec.length)
-                    currentDec = control + "\n" + code + "\n" + control2
-                }
-            }
+            languageObject.classDeclaration.replace("{{code}}", code)     
         }
         console.log(code)
         console.log(language)
+        console.log(imports)
     },
     options: {
         description: 'This is a testing command',
