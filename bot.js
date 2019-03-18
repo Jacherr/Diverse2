@@ -4,7 +4,8 @@ hide = require('./config.json')
 let bot = new Eris.CommandClient(hide.token, {
     defaultImageFormat: "png",
     defaultImageSize: 1024,
-    getAllUsers: true 
+    getAllUsers: true,
+    messageLimit: 300 
 }, {
     description: "Another Discord Bot",
     owner: "Jacher#9891 (233667448887312385)",
