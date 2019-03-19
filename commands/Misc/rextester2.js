@@ -71,7 +71,7 @@ function parseCode(code, languageObject, imports) {
     imports.forEach(element => {
         code = `${languageObject.importType} ${element}${languageObject.lineBreak}\n${code}`
     });
-    console.log(`precode ${code}`)
+    return code
 }
 
 function parseLanguages(args, imports) {
@@ -109,7 +109,7 @@ module.exports = {
         }
         let code = args.join(" ")
         if(languageObject.classDeclaration != undefined) {
-            parseCode(code, languageObject, imports)
+            code = parseCode(code, languageObject, imports)
         }
         console.log(imports)
         console.log(code)
