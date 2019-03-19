@@ -97,6 +97,7 @@ module.exports = {
         let parseLangs = languageProperties.filter(i => i.classDeclaration != undefined).map(j => j.name);
         let languageObject;
         let imports = [];
+        let message = await msg.channel.createMessage("Processing, please wait...")
         languageProperties.forEach(curobject => {
             if(curobject.aliases.includes(language)) {
                 languageObject = curobject
