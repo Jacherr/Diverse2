@@ -60,7 +60,7 @@ function parseCode(code, languageObject, imports) {
     code = classDec
     let i = 0
     imports.forEach(element => {
-        if(languegObject.defaultImports.includes(element)) {
+        if(languageObject.defaultImports.includes(element)) {
             imports.splice(i, 1)
         }
         i++
