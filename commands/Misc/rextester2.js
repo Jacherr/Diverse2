@@ -73,7 +73,7 @@ function parseCode(code, languageObject) {
     });
 }
 
-function parseLangs(args, imports) {
+function parseLanguages(args, imports) {
     for(let i = 2; i < args.length; i++){  
         if(args[i].endsWith(';')) {
             imports.push(args[i].substr(0, args[i].length - 1));
@@ -99,7 +99,7 @@ module.exports = {
             }
         });
         if(parseLangs.includes(languageObject.name) && args[1] == languageObject.importType) {
-            parseLangs(args, imports)
+            parseLanguages(args, imports)
         };
         if(args[1] == languageObject.importType && parseLangs.includes(languageObject.name)) {
             args.splice(0, imports.length + 2)
