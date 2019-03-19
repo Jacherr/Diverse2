@@ -71,6 +71,7 @@ function parseCode(code, languageObject, imports) {
     imports.forEach(element => {
         code = `${languageObject.importType} ${element}${languageObject.lineBreak}\n${code}`
     });
+    console.log(`precode ${code}`)
 }
 
 function parseLanguages(args, imports) {
