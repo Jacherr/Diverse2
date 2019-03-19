@@ -86,6 +86,7 @@ function parseLanguages(args, imports) {
 }
 
 const config = require('../../config.json')
+const superagent = require('superagent')
 
 module.exports = {
     label: 'rextester2',
