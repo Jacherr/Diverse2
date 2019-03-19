@@ -16,7 +16,7 @@ module.exports = {
                 default:
             }
         } catch (err) {
-            return msg.channel.createMessage(`${err.message}`);
+            return msg.channel.createMessage(`\`\`\`js\n${err.stack}\`\`\``);
         }
         if (typeof evaled === 'string') {
             evaled = evaled.replace(bot.token, '')
