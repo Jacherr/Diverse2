@@ -54,6 +54,36 @@ const languageProperties = [
     }
 ]
 
+function parseCode(code, languageObject) {
+    let classDec = languageObject.classDeclaration
+    classDec = classDec.replace("{{code}}", code)
+    code = classDec
+    let i = 0
+    imports.forEach(element => {
+        if(languegObject.defaultImports.includes(element)) {
+            imports.splice(i, 1)
+        }
+        i++
+    });
+    languageObject.defaultImports.forEach(element => {
+        imports.push(element)
+    })
+    imports.forEach(element => {
+        code = `${languageObject.importType} ${element}${languageObject.lineBreak}\n${code}`
+    });
+}
+
+function parseLangs(args, imports) {
+    for(let i = 2; i < args.length; i++){  
+        if(args[i].endsWith(';')) {
+            imports.push(args[i].substr(0, args[i].length - 1));
+            i = args.length + 1;
+        } else {
+            imports.push(args[i]);
+        }
+    };
+}
+
 module.exports = {
     label: 'rextester2',
     enabled: true,
@@ -69,14 +99,7 @@ module.exports = {
             }
         });
         if(parseLangs.includes(languageObject.name) && args[1] == languageObject.importType) {
-            for(let i = 2; i < args.length; i++){  
-                if(args[i].endsWith(';')) {
-                    imports.push(args[i].substr(0, args[i].length - 1));
-                    i = args.length + 1;
-                } else {
-                    imports.push(args[i]);
-                }
-            };
+            parseLangs(args, imports)
         };
         if(args[1] == languageObject.importType && parseLangs.includes(languageObject.name)) {
             args.splice(0, imports.length + 2)
@@ -85,16 +108,8 @@ module.exports = {
         }
         let code = args.join(" ")
         if(languageObject.classDeclaration != undefined) {
-            let classDec = languageObject.classDeclaration
-            classDec = classDec.replace("{{code}}", code)
-            code = classDec
-            imports.forEach(element => {
-                code = `${languageObject.importType} ${element}${languageObject.lineBreak}\n${code}`
-            });
+            parseCode(code, languageObject)
         }
-        console.log(code)
-        console.log(language)
-        console.log(imports)
     },
     options: {
         description: 'This is a testing command',
