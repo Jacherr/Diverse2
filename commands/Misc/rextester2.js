@@ -54,7 +54,7 @@ const languageProperties = [
     }
 ]
 
-function parseCode(code, languageObject) {
+function parseCode(code, languageObject, imports) {
     let classDec = languageObject.classDeclaration
     classDec = classDec.replace("{{code}}", code)
     code = classDec
@@ -108,7 +108,7 @@ module.exports = {
         }
         let code = args.join(" ")
         if(languageObject.classDeclaration != undefined) {
-            parseCode(code, languageObject)
+            parseCode(code, languageObject, imports)
         }
     },
     options: {
