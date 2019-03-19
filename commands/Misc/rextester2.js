@@ -110,6 +110,9 @@ module.exports = {
         if(languageObject.classDeclaration != undefined) {
             parseCode(code, languageObject, imports)
         }
+        console.log(imports)
+        console.log(code)
+        console.log(language)
     },
     options: {
         description: 'This is a testing command',
