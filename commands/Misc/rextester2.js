@@ -86,7 +86,7 @@ module.exports = {
         let code = args.join(" ")
         if(languageObject.classDeclaration != undefined) {
             let classDec = languageObject.classDeclaration
-            classDec.replace("{{code}}", code)
+            classDec = classDec.replace("{{code}}", code)
             code = classDec
             imports.forEach(element => {
                 code = `${languageObject.importType} ${element}${languageObject.lineBreak}\n${code}`
