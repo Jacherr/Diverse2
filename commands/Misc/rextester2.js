@@ -103,6 +103,16 @@ module.exports = {
                 languageObject = curobject
             }
         });
+        if(!languageObject) {
+            languageObject = {
+                name: language,
+                importType: undefined,
+                lineBreak: '',
+                defaultImports: [],
+                aliases: [],
+                classDeclaration: undefined
+            }
+        }
         if(parseLangs.includes(languageObject.name) && args[1] == languageObject.importType) {
             parseLanguages(args, imports)
         };
