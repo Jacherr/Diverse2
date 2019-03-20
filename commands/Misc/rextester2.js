@@ -87,7 +87,7 @@ function parseLanguages(args, imports) {
 
 const superagent = require('superagent')
 
-function outputResult(msg, language, code) {
+function outputResult(msg, language, code, message) {
     superagent
     .post('https://fapi.wrmsr.io/rextester')
     .set({
@@ -156,7 +156,7 @@ module.exports = {
         if(languageObject.classDeclaration != undefined) {
             code = parseCode(code, languageObject, imports)
         }
-        outputResult(msg, language, code)
+        outputResult(msg, language, code, message)
     },
     options: {
         description: 'This is a testing command',
