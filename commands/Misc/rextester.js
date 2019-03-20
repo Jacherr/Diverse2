@@ -50,12 +50,12 @@ const languageProperties = [
         lineBreak: '',
         defaultImports: ['math', 'random'],
         aliases: ['python', 'python3', 'py3', 'python2.7', 'py2.7', 'py2', 'python2', '5', '24', 'py'],
-        classDeclaration: undefined
+        classDeclaration: null
     }
 ]
 
 function parseCode(code, languageObject, imports) {
-    if (languageObject.classDeclaration != undefined) {
+    if (languageObject.classDeclaration) {
         let classDec = languageObject.classDeclaration
         classDec = classDec.replace("{{code}}", code)
         code = classDec
@@ -205,7 +205,7 @@ module.exports = {
         let parseLangs = languageProperties.filter(i => i.classDeclaration != undefined).map(j => j.name);
         let languageObject;
         let imports = [];
-        if(args[0] == undefined) return outputFullHelp(msg)
+        if(args[0]) return outputFullHelp(msg)
         if(args[0] == 'imports') return outputImports(msg)
         if(args[0] == 'list') return msg.channel.createMessage("https://hb.wrmsr.io/siraqazugo")
         let message = await msg.channel.createMessage("Processing, please wait...")
@@ -217,11 +217,11 @@ module.exports = {
         if (!languageObject) {
             languageObject = {
                 name: language,
-                importType: undefined,
+                importType: null,
                 lineBreak: '',
                 defaultImports: [],
                 aliases: [],
-                classDeclaration: undefined
+                classDeclaration: null
             }
         }
         if (parseLangs.includes(languageObject.name) && args[1] == languageObject.importType) {
@@ -233,7 +233,7 @@ module.exports = {
             args.splice(0, 1)
         }
         let code = args.join(" ")
-        if (languageObject.defaultImports.length > 0 || languageObject.classDeclaration != undefined) {
+        if (languageObject.defaultImports.length > 0 || languageObject.classDeclaration) {
             code = parseCode(code, languageObject, imports)
         }
         outputResult(msg, language, code, message)
