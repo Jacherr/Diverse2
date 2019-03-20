@@ -61,18 +61,22 @@ function parseCode(code, languageObject, imports) {
         code = classDec
     }
     let i = 0
-    imports.forEach(element => {
-        if(languageObject.defaultImports.includes(element)) {
-            imports.splice(i, 1)
-        }
-        i++
-    });
-    languageObject.defaultImports.forEach(element => {
-        imports.push(element)
-    })
-    imports.forEach(element => {
-        code = `${languageObject.importType} ${element}${languageObject.lineBreak}\n${code}`
-    });
+    if(imports.length > 0) {
+        imports.forEach(element => {
+            if(languageObject.defaultImports.includes(element)) {
+                imports.splice(i, 1)
+            }
+            i++
+        });
+        imports.forEach(element => {
+            code = `${languageObject.importType} ${element}${languageObject.lineBreak}\n${code}`
+        });
+    }
+    if(languageObject.defaultImports.length > 0) {
+        languageObject.defaultImports.forEach(element => {
+            imports.push(element)
+        })
+    }
     return code
 }
 
@@ -155,7 +159,7 @@ module.exports = {
             args.splice(0, 1)
         }
         let code = args.join(" ")
-        if(languageObject.defaultImports.length > 0) {
+        if(languageObject.defaultImports.length > 0 || languageObject.classDeclaration != undefined) {
             code = parseCode(code, languageObject, imports)
         }
         outputResult(msg, language, code, message)
