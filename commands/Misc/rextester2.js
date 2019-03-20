@@ -67,12 +67,12 @@ function parseCode(code, languageObject, imports) {
         }
         i++
     });
-    imports.forEach(element => {
-        code = `${languageObject.importType} ${element}${languageObject.lineBreak}\n${code}`
-    });
     languageObject.defaultImports.forEach(element => {
         imports.push(element)
     })
+    imports.forEach(element => {
+        code = `${languageObject.importType} ${element}${languageObject.lineBreak}\n${code}`
+    });
     return code
 }
 
