@@ -158,9 +158,6 @@ module.exports = {
         if (languageObject.defaultImports.length > 0 || languageObject.classDeclaration != undefined) {
             code = parseCode(code, languageObject, imports)
         }
-        console.log(code)
-        console.log(language)
-        console.log(imports)
         outputResult(msg, language, code, message)
     },
     options: {
