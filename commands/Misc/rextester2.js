@@ -55,34 +55,30 @@ const languageProperties = [
 ]
 
 function parseCode(code, languageObject, imports) {
-    if(languageObject.classDeclaration != undefined) {
+    if (languageObject.classDeclaration != undefined) {
         let classDec = languageObject.classDeclaration
         classDec = classDec.replace("{{code}}", code)
         code = classDec
     }
     let i = 0
-    if(imports.length > 0) {
-        imports.forEach(element => {
-            if(languageObject.defaultImports.includes(element)) {
-                imports.splice(i, 1)
-            }
-            i++
-        });
-        imports.forEach(element => {
-            code = `${languageObject.importType} ${element}${languageObject.lineBreak}\n${code}`
-        });
-    }
-    if(languageObject.defaultImports.length > 0) {
-        languageObject.defaultImports.forEach(element => {
-            imports.push(element)
-        })
-    }
+    imports.forEach(element => {
+        if (languageObject.defaultImports.includes(element)) {
+            imports.splice(i, 1)
+        }
+        i++
+    });
+    imports.forEach(element => {
+        code = `${languageObject.importType} ${element}${languageObject.lineBreak}\n${code}`
+    });
+    languageObject.defaultImports.forEach(element => {
+        imports.push(element)
+    })
     return code
 }
 
 function parseLanguages(args, imports) {
-    for(let i = 2; i < args.length; i++){  
-        if(args[i].endsWith(';')) {
+    for (let i = 2; i < args.length; i++) {
+        if (args[i].endsWith(';')) {
             imports.push(args[i].substr(0, args[i].length - 1));
             i = args.length + 1;
         } else {
@@ -95,32 +91,32 @@ const superagent = require('superagent')
 
 function outputResult(msg, language, code, message) {
     superagent
-    .post('https://fapi.wrmsr.io/rextester')
-    .set({
-        Authorization: config.api,
-        "Content-Type": "application/json"
-    })
-    .send({
-        args: {
-            text: code,
-            language: language
-        }
-    })
-    .end((err, response) => {
-        if (err) {
-            message.edit(`${err.toString()}`);
-        }
-        else {
-            message.delete();
-            if(response.text.length == 0) return msg.channel.createMessage("Empty response")
-            if (response.text.length > 1900) {
-                let responsetext = response.text.substr(0, 1900)
-                msg.channel.createMessage(`\`\`\`${responsetext}\`\`\``)
-            } else {
-                msg.channel.createMessage(`\`\`\`${response.text}\`\`\``)
+        .post('https://fapi.wrmsr.io/rextester')
+        .set({
+            Authorization: config.api,
+            "Content-Type": "application/json"
+        })
+        .send({
+            args: {
+                text: code,
+                language: language
             }
-        };
-    });
+        })
+        .end((err, response) => {
+            if (err) {
+                message.edit(`${err.toString()}`);
+            }
+            else {
+                message.delete();
+                if (response.text.length == 0) return msg.channel.createMessage("Empty response")
+                if (response.text.length > 1900) {
+                    let responsetext = response.text.substr(0, 1900)
+                    msg.channel.createMessage(`\`\`\`${responsetext}\`\`\``)
+                } else {
+                    msg.channel.createMessage(`\`\`\`${response.text}\`\`\``)
+                }
+            };
+        });
 }
 
 const config = require('../../config.json')
@@ -136,11 +132,11 @@ module.exports = {
         let imports = [];
         let message = await msg.channel.createMessage("Processing, please wait...")
         languageProperties.forEach(curobject => {
-            if(curobject.aliases.includes(language)) {
+            if (curobject.aliases.includes(language)) {
                 languageObject = curobject
             }
         });
-        if(!languageObject) {
+        if (!languageObject) {
             languageObject = {
                 name: language,
                 importType: undefined,
@@ -150,16 +146,16 @@ module.exports = {
                 classDeclaration: undefined
             }
         }
-        if(parseLangs.includes(languageObject.name) && args[1] == languageObject.importType) {
+        if (parseLangs.includes(languageObject.name) && args[1] == languageObject.importType) {
             parseLanguages(args, imports)
         };
-        if(args[1] == languageObject.importType && parseLangs.includes(languageObject.name)) {
+        if (args[1] == languageObject.importType && parseLangs.includes(languageObject.name)) {
             args.splice(0, imports.length + 2)
         } else {
             args.splice(0, 1)
         }
         let code = args.join(" ")
-        if(languageObject.defaultImports.length > 0 || languageObject.classDeclaration != undefined) {
+        if (languageObject.defaultImports.length > 0 || languageObject.classDeclaration != undefined) {
             code = parseCode(code, languageObject, imports)
         }
         outputResult(msg, language, code, message)
