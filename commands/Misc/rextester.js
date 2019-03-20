@@ -205,7 +205,7 @@ module.exports = {
         let parseLangs = languageProperties.filter(i => i.classDeclaration != undefined).map(j => j.name);
         let languageObject;
         let imports = [];
-        if(args[0]) return outputFullHelp(msg)
+        if(!args[0]) return outputFullHelp(msg)
         if(args[0] == 'imports') return outputImports(msg)
         if(args[0] == 'list') return msg.channel.createMessage("https://hb.wrmsr.io/siraqazugo")
         let message = await msg.channel.createMessage("Processing, please wait...")
