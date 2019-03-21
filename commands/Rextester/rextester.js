@@ -52,6 +52,7 @@ function outputResult(msg, language, code, message) {
                 message.edit(`${err.toString()}`);
             }
             else {
+                console.log(response)
                 message.delete();
                 if (response.Result.length == 0) return msg.channel.createMessage("Empty response")
                 if (response.Result.length > 1900) {
