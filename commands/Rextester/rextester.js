@@ -75,7 +75,7 @@ function outputFullHelp(msg) {
             thumbnail: {
                 url: `https://rextester.com/Content/linqdb_logo.png`
             },
-            color: 0x44ff77,
+            color: 0x35A2FF,
             title: `**Rextester**`,
             description: `This command allows you to write and compile code in a variety of languages.`,
             fields: [
@@ -120,7 +120,7 @@ function outputImports(msg) {
             thumbnail: {
                 url: `https://rextester.com/Content/linqdb_logo.png`
             },
-            color: 0x44ff77,
+            color: 0x35A2FF,
             title: `**Rextester default imports**`,
             fields: fieldsForEmbed,
             footer: {
