@@ -1,58 +1,4 @@
-const languageProperties = [
-    {
-        name: 'c#',
-        importType: 'using',
-        lineBreak: ';',
-        defaultImports: ['System'],
-        aliases: ['1', 'c#'],
-        classDeclaration: `namespace Rextester
-        {
-            public class Program
-            {
-                public static void Main(string[] args)
-                {
-                    {{code}}
-                }
-            }
-        }`
-    },
-    {
-        name: 'java',
-        importType: 'import',
-        lineBreak: ';',
-        defaultImports: ['java.lang.*'],
-        aliases: ['4', 'java'],
-        classDeclaration: `class Rextester
-        {
-            public static void main(String args[])
-            {
-                {{code}}
-            }
-        }`
-    },
-    {
-        name: 'vb',
-        importType: 'Imports',
-        lineBreak: '',
-        defaultImports: ['System', 'System.Collections.Generic', 'System.Linq', 'System.Text.RegularExpressions'],
-        aliases: ['visualbasic', '2', 'vb'],
-        classDeclaration: `Namespace Rextester
-            Public Module Program
-                Public Sub Main(args() As string)
-                    {{code}}
-                End Sub
-            End Module
-        End Namespace`
-    },
-    {
-        name: 'py',
-        importType: 'import',
-        lineBreak: '',
-        defaultImports: ['math', 'random'],
-        aliases: ['python', 'python3', 'py3', 'python2.7', 'py2.7', 'py2', 'python2', '5', '24', 'py'],
-        classDeclaration: null
-    }
-]
+const languageProperties = require('./languageProperties.json')
 
 function parseCode(code, languageObject, imports) {
     if (languageObject.classDeclaration) {
@@ -202,14 +148,14 @@ module.exports = {
     isSubcommand: false,
     generator: async (msg, args) => {
         let language = args[0];
-        let parseLangs = languageProperties.filter(i => i.classDeclaration != undefined).map(j => j.name);
+        let parseLangs = languageProperties.languageProperties.filter(i => i.classDeclaration != undefined).map(j => j.name);
         let languageObject;
         let imports = [];
         if(!args[0]) return outputFullHelp(msg)
         if(args[0] == 'imports') return outputImports(msg)
         if(args[0] == 'list') return msg.channel.createMessage("https://hb.wrmsr.io/siraqazugo")
         let message = await msg.channel.createMessage("Processing, please wait...")
-        languageProperties.forEach(curobject => {
+        languageProperties.languageProperties.forEach(curobject => {
             if (curobject.aliases.includes(language)) {
                 languageObject = curobject
             }
