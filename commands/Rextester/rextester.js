@@ -166,7 +166,8 @@ module.exports = {
                 lineBreak: '',
                 defaultImports: [],
                 aliases: [],
-                classDeclaration: null
+                classDeclaration: null,
+                langaugeCode: null
             }
         }
         if (parseLangs.includes(languageObject.name) && args[1] == languageObject.importType) {
@@ -181,7 +182,7 @@ module.exports = {
         if (languageObject.defaultImports.length > 0 || languageObject.classDeclaration) {
             code = parseCode(code, languageObject, imports)
         }
-        language = languageObject.langaugeCode
+        if(languageObject.langaugeCode) language = languageObject.langaugeCode
         outputResult(msg, language, code, message)
     },
     options: {
