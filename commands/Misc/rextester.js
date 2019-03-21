@@ -135,12 +135,12 @@ function outputFullHelp(msg) {
             fields: [
                 {
                     name: `Usage`,
-                    value: `The general usage for all languages is \`..rextester [language] [code]\`, but some languages support imports as well as code and language.\nIn this case, you can use \`..rextester [language] [import <imports>]; [code] and your imports will be parsed for you at the top of the code.`,
+                    value: `The general usage for all languages is \`..rextester [language] [code]\`, but some languages support imports as well as code and language.\nIn this case, you can use \`..rextester [language] [<importType> <imports>]; [code]\` and your imports will be parsed for you at the top of the code.`,
                     inline: false
                 },
                 {
                     name: `Examples`,
-                    value: `**For most languages:**\n \`..rextester node console.log('Hello World!')\`\n\`..rextester py print('Hello World')\`\n\n**For C#, Visual Basic and Java:**\n\`..rextester c# import System; Console.WriteLine("Hello World!");\`\n\`..rextester java import java.lang.*; System.out.println("Hello World!");\`\n*Imports are not mandatory for these languages - in other words, you can completely disregard the \`import\` statement if you want and the code will still run.*`,
+                    value: `**For most languages:**\n \`..rextester node console.log('Hello World!')\`\n\`..rextester py print('Hello World!')\`\n\n**For C#, Visual Basic and Java:**\n\`..rextester c# using System; Console.WriteLine("Hello World!");\`\n\`..rextester java import java.lang.*; System.out.println("Hello World!");\`\n*Imports are not mandatory for these languages - in other words, you can completely disregard the imports parsing if you want and the code will still run.*`,
                     imline: false
                 },
                 {
