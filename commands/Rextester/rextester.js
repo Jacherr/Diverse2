@@ -100,6 +100,17 @@ function outputFullHelp(msg) {
 }
 
 function outputImports(msg) {
+    let fieldsForEmbed = []
+    languageProperties.languageProperties.forEach(item => {
+        if(item.defaultImports.length > 0) {
+            let defImports = item.defImports.join(", ")
+            fieldsForEmbed.push({
+               name: item.name,
+               value: defImports,
+               inline: true
+            })
+        }
+    })
     msg.channel.createMessage({
         embed: {
             author: {
@@ -111,28 +122,7 @@ function outputImports(msg) {
             },
             color: 0x44ff77,
             title: `**Rextester default imports**`,
-            fields: [
-                {
-                    name: `C#`,
-                    value: `\`System\``,
-                    inline: true
-                },
-                {
-                    name: `Python`,
-                    value: `\`math\`, \`random\``,
-                    inline: true
-                },
-                {
-                    name: `Java`,
-                    value: `\`java.lang.*\``,
-                    inline: true
-                },
-                {
-                    name: `Visual Basic`,
-                    value: `\`System\`, \`System.Collections.Generic\`, \`System.Linq\`, \`System.Text.RegularExpressions\``,
-                    inline: true
-                }
-            ],
+            fields: fieldsForEmbed,
             footer: {
                 text: `Duplicate imports are ignored (for languages that can parse imports).`
             }
