@@ -54,12 +54,22 @@ function outputResult(msg, language, code, message) {
             else {
                 console.log(response)
                 message.delete();
-                if (response.Result.length == 0) return msg.channel.createMessage("Empty response")
-                if (response.Result.length > 1900) {
-                    let responsetext = response.Result.substr(0, 1900)
-                    msg.channel.createMessage(`\`\`\`${responsetext}\`\`\``)
-                } else {
-                    msg.channel.createMessage(`\`\`\`${response.Result}\`\`\``)
+                if(response.body.Result) {
+                    if (response.body.Result.length == 0) return msg.channel.createMessage("Empty response")
+                    if (response.body.Result.length > 1900) {
+                        let responsetext = response.body.Result.substr(0, 1900)
+                        msg.channel.createMessage(`\`\`\`${responsetext}\`\`\``)
+                    } else {
+                        msg.channel.createMessage(`\`\`\`${response.Result}\`\`\``)
+                    }
+                } else if(response.body.Errors) {
+                    if (response.body.Errors.length == 0) return msg.channel.createMessage("Empty response (errored)")
+                    if (response.body.Errors.length > 1900) {
+                        let responsetext = response.body.Errors.substr(0, 1900)
+                        msg.channel.createMessage(`\`\`\`${responsetext}\`\`\``)
+                    } else {
+                        msg.channel.createMessage(`\`\`\`${response.Errors}\`\`\``)
+                    } 
                 }
             };
         });
