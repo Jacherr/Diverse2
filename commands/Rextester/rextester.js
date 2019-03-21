@@ -103,7 +103,7 @@ function outputImports(msg) {
     let fieldsForEmbed = []
     languageProperties.languageProperties.forEach(item => {
         if(item.defaultImports.length > 0) {
-            let defImports = item.defImports.join(", ")
+            let defImports = item.defaultImports.join(", ")
             fieldsForEmbed.push({
                name: item.name,
                value: defImports,
