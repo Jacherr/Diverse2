@@ -37,16 +37,15 @@ const superagent = require('superagent')
 
 function outputResult(msg, language, code, message) {
     superagent
-        .post('https://fapi.wrmsr.io/rextester')
+        .post('https://rextester.com/rundotnet/api')
         .set({
-            Authorization: config.api,
             "Content-Type": "application/json"
         })
         .send({
-            args: {
-                text: code,
-                language: language
-            }
+            LanguageChoice: language,
+            Program = code,
+            Input: "",
+            CompileArgs: ""
         })
         .end((err, response) => {
             if (err) {
