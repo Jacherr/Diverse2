@@ -52,23 +52,22 @@ function outputResult(msg, language, code, message) {
                 message.edit(`${err.toString()}`);
             }
             else {
-                console.log(response)
                 message.delete();
                 if(response.body.Result) {
                     if (response.body.Result.length == 0) return msg.channel.createMessage("Empty response")
                     if (response.body.Result.length > 1900) {
                         let responsetext = response.body.Result.substr(0, 1900)
-                        msg.channel.createMessage(`\`\`\`clear sub: ${responsetext}\`\`\``)
+                        msg.channel.createMessage(`\`\`\`${responsetext}\`\`\``)
                     } else {
-                        msg.channel.createMessage(`\`\`\`clear: ${response.body.Result}\`\`\``)
+                        msg.channel.createMessage(`\`\`\`${response.body.Result}\`\`\``)
                     }
                 } else if(response.body.Errors) {
                     if (response.body.Errors.length == 0) return msg.channel.createMessage("Empty response (errored)")
                     if (response.body.Errors.length > 1900) {
                         let responsetext = response.body.Errors.substr(0, 1900)
-                        msg.channel.createMessage(`\`\`\`err sub: ${responsetext}\`\`\``)
+                        msg.channel.createMessage(`\`\`\`${responsetext}\`\`\``)
                     } else {
-                        msg.channel.createMessage(`\`\`\`err: ${response.body.Errors}\`\`\``)
+                        msg.channel.createMessage(`\`\`\`${response.body.Errors}\`\`\``)
                     } 
                 }
             };
@@ -182,6 +181,7 @@ module.exports = {
         if (languageObject.defaultImports.length > 0 || languageObject.classDeclaration) {
             code = parseCode(code, languageObject, imports)
         }
+        language = languageObject.langaugeCode
         outputResult(msg, language, code, message)
     },
     options: {

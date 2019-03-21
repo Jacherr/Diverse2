@@ -6,7 +6,8 @@
             "lineBreak": ";",
             "defaultImports": ["System"],
             "aliases": ["1", "c#"],
-            "classDeclaration": "namespace Rextester\n{\npublic class Program\n{\npublic static void Main(string[] args)\n{\n{{code}}\n}\n}\n}"
+            "classDeclaration": "namespace Rextester\n{\npublic class Program\n{\npublic static void Main(string[] args)\n{\n{{code}}\n}\n}\n}",
+            "langaugeCode": "1"
         },
         {
             "name": "java",
@@ -14,7 +15,8 @@
             "lineBreak": ";",
             "defaultImports": ["java.lang.*"],
             "aliases": ["4", "java"],
-            "classDeclaration": "class Rextester\n{\npublic static void main(String args[])\n{\n{{code}}\n}\n}"
+            "classDeclaration": "class Rextester\n{\npublic static void main(String args[])\n{\n{{code}}\n}\n}",
+            "langaugeCode": "4"
         },
         {
             "name": "vb",
@@ -22,7 +24,8 @@
             "lineBreak": "",
             "defaultImports": ["System", "System.Collections.Generic", "System.Linq", "System.Text.RegularExpressions"],
             "aliases": ["visualbasic", "2", "vb"],
-            "classDeclaration": "Namespace Rextester\nPublic Module Program\nPublic Sub Main(args() As string)\n{{code}}\nEnd Sub\nEnd Module\nEnd Namespace"
+            "classDeclaration": "Namespace Rextester\nPublic Module Program\nPublic Sub Main(args() As string)\n{{code}}\nEnd Sub\nEnd Module\nEnd Namespace",
+            "langaugeCode": "2"
         },
         {
             "name": "py",
@@ -30,7 +33,8 @@
             "lineBreak": "",
             "defaultImports": ["math", "random"],
             "aliases": ["python", "python3", "py3", "python2.7", "py2.7", "py2", "python2", "5", "24", "py"],
-            "classDeclaration": null
+            "classDeclaration": null,
+            "langaugeCode": "5"
         }
     ]
 }
