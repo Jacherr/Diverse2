@@ -43,7 +43,7 @@ function outputResult(msg, language, code, message) {
         })
         .send({
             LanguageChoice: language,
-            Program = code,
+            Program: code,
             Input: "",
             CompileArgs: ""
         })
