@@ -58,17 +58,17 @@ function outputResult(msg, language, code, message) {
                     if (response.body.Result.length == 0) return msg.channel.createMessage("Empty response")
                     if (response.body.Result.length > 1900) {
                         let responsetext = response.body.Result.substr(0, 1900)
-                        msg.channel.createMessage(`\`\`\`${responsetext}\`\`\``)
+                        msg.channel.createMessage(`\`\`\`clear sub: ${responsetext}\`\`\``)
                     } else {
-                        msg.channel.createMessage(`\`\`\`${response.Result}\`\`\``)
+                        msg.channel.createMessage(`\`\`\`clear: ${response.body.Result}\`\`\``)
                     }
                 } else if(response.body.Errors) {
                     if (response.body.Errors.length == 0) return msg.channel.createMessage("Empty response (errored)")
                     if (response.body.Errors.length > 1900) {
                         let responsetext = response.body.Errors.substr(0, 1900)
-                        msg.channel.createMessage(`\`\`\`${responsetext}\`\`\``)
+                        msg.channel.createMessage(`\`\`\`err sub: ${responsetext}\`\`\``)
                     } else {
-                        msg.channel.createMessage(`\`\`\`${response.Errors}\`\`\``)
+                        msg.channel.createMessage(`\`\`\`err: ${response.body.Errors}\`\`\``)
                     } 
                 }
             };
