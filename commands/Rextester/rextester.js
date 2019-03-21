@@ -53,12 +53,12 @@ function outputResult(msg, language, code, message) {
             }
             else {
                 message.delete();
-                if (response.text.length == 0) return msg.channel.createMessage("Empty response")
-                if (response.text.length > 1900) {
-                    let responsetext = response.text.substr(0, 1900)
+                if (response.Result.length == 0) return msg.channel.createMessage("Empty response")
+                if (response.Result.length > 1900) {
+                    let responsetext = response.Result.substr(0, 1900)
                     msg.channel.createMessage(`\`\`\`${responsetext}\`\`\``)
                 } else {
-                    msg.channel.createMessage(`\`\`\`${response.text}\`\`\``)
+                    msg.channel.createMessage(`\`\`\`${response.Result}\`\`\``)
                 }
             };
         });
