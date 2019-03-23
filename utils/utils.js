@@ -115,5 +115,6 @@ module.exports = {
     resolveMember: resolveMember,
     splitMessage : splitMessage,
     getRandomColor : getRandomColor,
-    db : db 
+    db : db,
+    resolvePermission : resolvePermission
 };
