@@ -13,7 +13,7 @@ function resolveMember(msg, args, send) {
                 } else if (msg.channel.guild.members.filter(m => m.nick).find(m => m.nick.toLowerCase() === `${arg.toLowerCase()}`) !== undefined) {
                     botuser = msg.channel.guild.members.filter(m => m.nick).find(m => m.nick.toLowerCase() === `${arg.toLowerCase()}`);
                 } else {
-                    if (send = false) {
+                    if (!send) {
                         msg.channel.createMessage(`<:redtick:495959132180840449> Nothing found for "${arg}"`);
                     }
                     return botuser = undefined;
@@ -26,6 +26,40 @@ function resolveMember(msg, args, send) {
         botuser = msg.channel.guild.members.get(msg.member.id);
     }
     return botuser;
+}
+
+function resolvePermission(permission) {
+    let permsArray = { 'high': [], 'mid': [], 'low': [] };
+    if (permission == undefined)
+        return permsArray;
+    let permissions = [
+        { name: 'administrator', type: 'high', value: 'Administrator' },
+        { name: 'viewAuditLogs', type: 'high', value: 'View Audit Logs' },
+        { name: 'manageGuild', type: 'high', value: 'Manage Server' },
+        { name: 'manageRoles', type: 'high', value: 'Manage Roles' },
+        { name: 'manageChannels', type: 'high', value: 'Manage Channels' },
+        { name: 'manageMessages', type: 'high', value: 'Manage Messages' },
+        { name: 'manageNicknames', type: 'high', value: 'Manage Nicknames' },
+        { name: 'manageEmojis', type: 'high', value: 'Manage Emojis' },
+        { name: 'manageWebhooks', type: 'high', value: 'Manage Webhooks' },
+        { name: 'kickMembers', type: 'high', value: 'Kick Members' },
+        { name: 'banMembers', type: 'high', value: 'Ban Members' },
+        { name: 'createInstantInvite', type: 'mid', value: 'Create Instant Invite' },
+        { name: 'mentionEveryone', type: 'mid', value: 'Mention Everyone' },
+        { name: 'embedLinks', type: 'mid', value: 'Embed Links' },
+        { name: 'attachFiles', type: 'mid', value: 'Attach Files' },
+        { name: 'addReactions', type: 'mid', value: 'Add Reactions' },
+        { name: 'useExternalEmojis', type: 'mid', value: 'Use External Emojis' },
+        { name: 'readMessages', type: 'low', value: 'Read Messages' },
+        { name: 'sendMessages', type: 'low', value: 'Send Messages' },
+        { name: 'readMessageHistory', type: 'low', value: 'Read Message History' },
+    ];
+    for (let i = 0; i < permissions.length; i++) {
+        let perm = permissions[i];
+        if (permission[perm.name] == true || (typeof permission.allow) == 'number' && permission.has(perm.name))
+            permsArray[perm.type].push(perm.value);
+    }
+    return permsArray;
 }
 
 function splitMessage(message, len) {

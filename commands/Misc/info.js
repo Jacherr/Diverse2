@@ -51,7 +51,7 @@ module.exports = {
                     },
                     {
                         name: 'Contributors',
-                        value: '<@155698776512790528> CoalSephos#7566 - huge help with most commands\n<@310145094684639235> oathompsonjones#5337 - whois role mapping and other various things\n<@179908288337412096> KhaaZ#0001 - helping me learn javascript back when i was a scrub at it',
+                        value: '<@155698776512790528> CoalSephos#7566 - huge help with most commands\n<@310145094684639235> oathompsonjones#5337 - whois role mapping and other various things\n<@179908288337412096> KhaaZ#0001 - helping me learn javascript back when i was a scrub at it\n<@191294695802929152> Crylis#9132 - permission resolver',
                         inline: false
                     },
                     {
