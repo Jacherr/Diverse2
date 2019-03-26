@@ -44,6 +44,15 @@
             "aliases": ["node", "node.js", "23"],
             "classDeclaration": null,
             "langaugeCode": "23"
+        },
+        {
+            "name": "ruby",
+            "importType": null,
+            "lineBreak": "",
+            "defaultImports": [],
+            "aliases": ["ruby", "rb", "12"],
+            "classDeclaration": null,
+            "langaugeCode": "12"
         }
     ]
 }
