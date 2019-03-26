@@ -1,5 +1,4 @@
-const bot = require('./../../bot.js');
-const utils = require('./../../utils/utils.js');
+const config = require('../../config.json')
 
 module.exports = {
     label: 'serverinfo',
@@ -18,6 +17,14 @@ module.exports = {
         if (created.getMinutes() <= 9) {
             createdMins = `0${created.getMinutes()}`;
         }
+        let partnered = config.redTickEmote
+        let verified = config.redTickEmote
+        if(msg.channel.guild.features.includes('VERIFIED')) {
+            verified = config.greenTickEmote
+        }
+        if(msg.channel.guild.features.includes('INVITE_SPLASH') || msg.channel.guild.features.includes('VANITY_URL') || msg.channel.guild.features.includes('VIP_REGIONS')) {
+            partnered = config.greenTickEmote
+        }
         msg.channel.createMessage({
             embed: {
                 author: {
@@ -27,6 +34,7 @@ module.exports = {
                 thumbnail: {
                     url: msg.channel.guild.iconURL
                 },
+                description: `<:verified:560210126066155530>: ${verified}, <:discordpartner:560209313872871465>: ${partnered}`,
                 color: msg.channel.guild.roles.size && msg.channel.guild.roles.filter(i => i.color).length ? msg.channel.guild.roles.filter(i => i.color).map(i => i).sort((a, b) => b.position - a.position)[0].color : undefined,
                 fields: [
                     {
@@ -50,7 +58,7 @@ module.exports = {
                         inline: true,
                     },
                     {
-                        name: 'Creation date',
+                        name: 'Creation Date',
                         value: `${created.getDate()}/${created.getMonth() + 1}/${created.getFullYear()} ${created.getHours()}:${createdMins}`,
                         inline: true,
                     },
