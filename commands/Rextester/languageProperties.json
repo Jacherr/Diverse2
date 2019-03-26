@@ -35,6 +35,15 @@
             "aliases": ["python", "python3", "py3", "python2.7", "py2.7", "py2", "python2", "5", "24", "py"],
             "classDeclaration": null,
             "langaugeCode": "5"
+        },
+        {
+            "name": "node",
+            "importType": null,
+            "lineBreak": ";",
+            "defaultImports": [],
+            "aliases": ["node", "node.js", "23"],
+            "classDeclaration": null,
+            "langaugeCode": "23"
         }
     ]
 }
