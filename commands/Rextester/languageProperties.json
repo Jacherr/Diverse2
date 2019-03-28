@@ -7,7 +7,7 @@
             "defaultImports": ["System"],
             "aliases": ["1", "c#"],
             "classDeclaration": "namespace Rextester\n{\npublic class Program\n{\npublic static void Main(string[] args)\n{\n{{code}}\n}\n}\n}",
-            "langaugeCode": "1"
+            "languageCode": "1"
         },
         {
             "name": "java",
@@ -16,7 +16,7 @@
             "defaultImports": ["java.lang.*"],
             "aliases": ["4", "java"],
             "classDeclaration": "class Rextester\n{\npublic static void main(String args[])\n{\n{{code}}\n}\n}",
-            "langaugeCode": "4"
+            "languageCode": "4"
         },
         {
             "name": "vb",
@@ -25,7 +25,7 @@
             "defaultImports": ["System", "System.Collections.Generic", "System.Linq", "System.Text.RegularExpressions"],
             "aliases": ["visualbasic", "2", "vb"],
             "classDeclaration": "Namespace Rextester\nPublic Module Program\nPublic Sub Main(args() As string)\n{{code}}\nEnd Sub\nEnd Module\nEnd Namespace",
-            "langaugeCode": "2"
+            "languageCode": "2"
         },
         {
             "name": "py",
@@ -34,7 +34,7 @@
             "defaultImports": ["math", "random"],
             "aliases": ["python", "python3", "py3", "python2.7", "py2.7", "py2", "python2", "5", "24", "py"],
             "classDeclaration": null,
-            "langaugeCode": "5"
+            "languageCode": "5"
         },
         {
             "name": "node",
@@ -43,7 +43,7 @@
             "defaultImports": [],
             "aliases": ["node", "node.js", "23"],
             "classDeclaration": null,
-            "langaugeCode": "23"
+            "languageCode": "23"
         },
         {
             "name": "ruby",
@@ -52,7 +52,24 @@
             "defaultImports": [],
             "aliases": ["ruby", "rb", "12"],
             "classDeclaration": null,
-            "langaugeCode": "12"
+            "languageCode": "12"
+        }, 
+        {
+            "name": "tcl",
+            "importType": null,
+            "lineBreak": "",
+            "defaultImports": [],
+            "aliases": ["tcl", "32"],
+            "classDeclaration": null,
+            "languageCode": "32"
+        },
+        {
+            "name": "c++",
+            "importType": "#include",
+            "lineBreak": ";",
+            "defaultImports": ["<iostream>"],
+            "aliases": ["7", "27", "28", "c++", "cpp", "c++(clang)", "c++(vc++)"],
+            "classDeclaration": "int main()\n{\n{{code}}\n}"
         }
     ]
 }
