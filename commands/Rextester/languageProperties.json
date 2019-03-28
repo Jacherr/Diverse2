@@ -68,7 +68,7 @@
             "importType": "#include",
             "lineBreak": ";",
             "defaultImports": ["<iostream>"],
-            "aliases": ["7", "27", "28", "c++", "cpp", "c++(clang)", "c++(vc++)"],
+            "aliases": ["7", "27", "28", "c++", "cpp", "c++(clang)", "c++(vc++)", "c++(gcc)"],
             "classDeclaration": "int main()\n{\n{{code}}\n}"
         }
     ]
