@@ -39,7 +39,7 @@ module.exports = {
                 i++
             }
         })
-        msg.channel.createMessage(textArray)
+        msg.channel.createMessage(textArray.toString())
         superagent
         .post(`https://fapi.wrmsr.io/eval_magik`)
         .set({
