@@ -63,7 +63,7 @@ module.exports = {
         description: 'Use evalmagik on an image',
         fullDescription: 'Use evalmagik on an imaghe',
         usage: '..evalmagik [stuff] [array of effects]',
-        aliases: ['em'],
+        aliases: ['evalm'],
         requirements: {
             userIDs: ['233667448887312385']
         }
