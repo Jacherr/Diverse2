@@ -7,6 +7,7 @@ module.exports = {
     isSubcommand: false,
     generator: async (msg, args) => {
         let user = []
+        let files = []
         user.push(args[0])
         let botuser = await utils.resolveMember(msg, user, false);
         if(!args[0]) botuser = undefined
