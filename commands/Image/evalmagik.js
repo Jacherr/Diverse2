@@ -26,7 +26,7 @@ module.exports = {
         let i = 0
         let textArray = []
         let currentArray = []
-        args.forEach(element, () => {
+        args.forEach(function(element) {
             if(element.endsWith(';')) {
                 element.slice(0, element.length - 1)
                 for(let j = 0; j < i; j++) {
