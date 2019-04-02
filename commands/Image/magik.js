@@ -33,9 +33,6 @@ module.exports = {
              gif = true
              size = "150x150"
         }
-        if(msg.author.id == '334093318818627586') {
-            files = [msg.author.avatarURL]
-        }
         let value = await superagent
             .post('https://fapi.wrmsr.io/evalmagik')
             .accept('image/gif')
