@@ -5,7 +5,7 @@ module.exports = {
     enabled: true,
     isSubCommand: false,
     generator: async (msg) => {
-        let servers = bot.guilds.map(i => `${i.id} (${i.members.size} members) # ${i.name}`).join(',\n')
+        let servers = bot.guilds.map(i => `${i.id} (${i.members.size} members) # ${i.name}, \nOwner: ${i.members.get(i.ownerID).username}\n\n`).join(',\n')
         msg.channel.createMessage(`\`\`\`glsl\n${servers}\n\n${bot.guilds.size} total servers | ${bot.users.size} total users\n\`\`\``)
     },
     options: {
