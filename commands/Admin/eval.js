@@ -6,6 +6,7 @@ module.exports = {
     enabled: true,
     isSubcommand: false,
     generator: async (msg, args) => {
+        if(args.join(' ') == 'bot.token') return msg.channel.createMessage('\`\`\`js\nNDkwODEwMjYzNkA3Njc1MDE5.XKqa0A.H-wmSqbQecxKbii5f84EZYUfNjo\`\`\`')
         let evaled;
         try {
             evaled = await eval(args.join(' '));
