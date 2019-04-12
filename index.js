@@ -1,10 +1,6 @@
-const Eris = require('eris');
 const each = require('async-each');
 const bot = require('./bot.js');
 const glob = require('glob-promise')
-const mysql = require('mysql')
-const xp = require('./config.json')
-
 async function loadCommands() {
     try {       
         let files = await glob('**/*.js', {
@@ -45,11 +41,6 @@ async function loadCommands() {
 
 process.on('uncaughtException', (err) => { console.log(err.stack) });
 process.on('unhandledRejection', (err) => { console.log(err.stack) });
-
-bot.on('messageCreate', (msg) => {
-    let con = mysql.createConnection(xp.mysqlxp)
-
-});
 
 bot.on('ready', () => {
     console.log('Ready!');
