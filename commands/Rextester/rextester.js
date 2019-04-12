@@ -35,7 +35,7 @@ function parseLanguages(args, imports) {
 
 const superagent = require('superagent')
 
-function outputResult(msg, language, code, message) {
+function outputResult(msg, language, code, message, compilerArgs) {
     superagent
         .post('https://rextester.com/rundotnet/api')
         .set({
@@ -183,7 +183,13 @@ module.exports = {
             code = parseCode(code, languageObject, imports)
         }
         if(languageObject.languageCode) language = languageObject.languageCode
-        outputResult(msg, language, code, message)
+        let compilerArgs;
+        if(languageObject.compilerArgs) {
+            compilerArgs = languageObject.compilerArgs
+        } else {
+            compilerArgs = ""
+        }
+        outputResult(msg, language, code, message, compilerArgs)
     },
     options: {
         description: 'Use \`..rextester\` for full help',
