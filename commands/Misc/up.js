@@ -6,7 +6,7 @@ module.exports = {
     isSubcommand: false,
     generator: (msg) => {
         let uptime = new Date(bot.uptime);
-        uptime = `The bot has been running for ${uptime.getUTCDate() - 1} days, ${uptime.getUTCHours()} hours, ${uptime.getMinutes()} minutes, and ${uptime.getSeconds()} seconds`;
+        uptime = `Uptime: \`${uptime.getUTCDate() - 1}d, ${uptime.getUTCHours()}h, ${uptime.getMinutes()}m, ${uptime.getSeconds()}s\``;
         msg.channel.createMessage(uptime);
     },
     options: {
