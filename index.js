@@ -16,7 +16,6 @@ async function loadCommands() {
             if (c.enabled === true && !c.isSubcommand) {
                 let cmd = bot.registerCommand(c.label, c.generator, c.options);
                 registerSubcommands(c, cmd);
-
                 function registerSubcommands(cmd, parent) {
                     cmd.subcommands = cmd.subcommands || [];
                     cmd.subcommands.forEach((subcmd) => {
@@ -45,7 +44,7 @@ process.on('unhandledRejection', (err) => { console.log(err.stack) });
 bot.on('ready', () => {
     console.log('Ready!');
     bot.editStatus(null, {
-        name: '..help',
+        name: '..help | Diverse',
         type: 0
     });
     loadCommands();
