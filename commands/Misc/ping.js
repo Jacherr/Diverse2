@@ -6,7 +6,7 @@ module.exports = { // export file metadata as an object to base index.js file
     isSubcommand: false, // if command is a sub command
     generator: (msg) => { // (client.registerCommand(label, (<stuff>) => {}))
         let start = Date.now();
-        msg.channel.createMessage('Pong!').then(msg => msg.edit(`Pong! \`${Math.round(10, Date.now() - start)}ms\``));
+        msg.channel.createMessage('Pong!').then(msg => msg.edit(`Pong! \`${Date.now() - start}ms\``));
     }, // end command shit
     options: { // options
         description: 'Pings the bot', // to show when a user does "..help"
