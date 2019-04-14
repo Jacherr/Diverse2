@@ -1,4 +1,4 @@
-const randomColour = require('../../utils/utils.js').getRandomColor()
+const randomColour = require('../../utils/utils.js')
 const bot = require('../../bot.js')
 module.exports = {
     label: 'information',
@@ -7,7 +7,7 @@ module.exports = {
     generator: (msg) => {
         msg.channel.createMessage({
             embed: {
-                color: randomColour,
+                color: randomColour.getRandomColor(),
                 description: 'Diverse has been privatised recently so I (Jacher#9891) can focus on making new and better features for it.\nInterested in contributing? DM me (Jacher#9891) or [join the server](https://discord.gg/upvJaYq)',
                 author: {
                     name: 'Diverse',
