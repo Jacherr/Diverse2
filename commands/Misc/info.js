@@ -17,7 +17,8 @@ module.exports = {
                 fields: [
                     {
                         title: 'Contributors',
-                        value: 'Diverse would not have been possible without the help and support from these amazing people:\nCoalSephos#7566\nKhaaZ#0001\nCrylis#9132\noathompsonjones#5337\nAnd everyone who has contributed code or knowledge to the bot or has supported me in any way!'
+                        value: 'Diverse would not have been possible without the help and support from these amazing people:\nCoalSephos#7566\nKhaaZ#0001\nCrylis#9132\noathompsonjones#5337\nAnd everyone who has contributed code or knowledge to the bot or has supported me in any way!',
+                        inline: false
                     }
                 ]
             }
