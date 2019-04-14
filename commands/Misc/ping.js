@@ -10,7 +10,7 @@ module.exports = { // export file metadata as an object to base index.js file
     }, // end command shit
     options: { // options
         description: 'Pings the bot', // to show when a user does "..help"
-        fullDescription: '', // to show when a user does "..help <command name>"
+        fullDescription: 'Pings the bot', // to show when a user does "..help <command name>"
         aliases: [], // array of aliases (optional)
         usage: '..ping' // usage to show in "..help <command name>" (default make it command name)
     },
