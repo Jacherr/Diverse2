@@ -5,6 +5,7 @@ module.exports = {
     generator: async (msg, args) => {
         let toParse = args.join(' ')
         if(toParse.includes("{server}")) toParse.replace(/blue/g, msg.channel.guild.name)
+        msg.channel.createMessage(toParse)
     },
     options: {
         description: 'Parses code - testing command',
