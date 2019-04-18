@@ -186,7 +186,7 @@ module.exports = {
         if(languageObject.languageCode) language = languageObject.languageCode
         let compilerArgs;
         if(languageObject.compilerArgs) {
-            compilerArgs = languageObject.compilerArgs
+            compilerArgs = languageObject.compilerArgs.join(" ")
         } else {
             compilerArgs = ""
         }
