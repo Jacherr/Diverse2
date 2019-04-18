@@ -13,7 +13,7 @@ module.exports = {
             user: {
                 main: '{user.{property}}',
                 name: ['name', msg.author.username],
-                joindate: ['joined', msg.author.joinedAt]
+                joindate: ['joined', new Date(msg.member.joinedAt).toUTCString()]
             }
         }
         let toParse = args.join(' ')
