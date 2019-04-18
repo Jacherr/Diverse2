@@ -46,7 +46,7 @@ function outputResult(msg, language, code, message, compilerArgs) {
             LanguageChoice: language,
             Program: code,
             Input: "",
-            CompileArgs: compilerArgs
+            CompilerArgs: compilerArgs
         })
         .end((err, response) => {
             if (err) {
