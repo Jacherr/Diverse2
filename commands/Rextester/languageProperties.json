@@ -7,7 +7,8 @@
             "defaultImports": ["System"],
             "aliases": ["1", "c#"],
             "classDeclaration": "namespace Rextester\n{\npublic class Program\n{\npublic static void Main(string[] args)\n{\n{{code}}\n}\n}\n}",
-            "languageCode": "1"
+            "languageCode": "1",
+            "compilerArgs": null
         },
         {
             "name": "java",
@@ -16,7 +17,8 @@
             "defaultImports": ["java.lang.*"],
             "aliases": ["4", "java"],
             "classDeclaration": "class Rextester\n{\npublic static void main(String args[])\n{\n{{code}}\n}\n}",
-            "languageCode": "4"
+            "languageCode": "4",
+            "compilerArgs": null
         },
         {
             "name": "vb",
@@ -25,7 +27,8 @@
             "defaultImports": ["System", "System.Collections.Generic", "System.Linq", "System.Text.RegularExpressions"],
             "aliases": ["visualbasic", "2", "vb"],
             "classDeclaration": "Namespace Rextester\nPublic Module Program\nPublic Sub Main(args() As string)\n{{code}}\nEnd Sub\nEnd Module\nEnd Namespace",
-            "languageCode": "2"
+            "languageCode": "2",
+            "compilerArgs": null
         },
         {
             "name": "py",
@@ -34,7 +37,8 @@
             "defaultImports": ["math", "random"],
             "aliases": ["python", "python3", "py3", "python2.7", "py2.7", "py2", "python2", "5", "24", "py"],
             "classDeclaration": null,
-            "languageCode": "5"
+            "languageCode": "5",
+            "compilerArgs": null
         },
         {
             "name": "node",
@@ -43,7 +47,8 @@
             "defaultImports": [],
             "aliases": ["node", "node.js", "23"],
             "classDeclaration": null,
-            "languageCode": "23"
+            "languageCode": "23",
+            "compilerArgs": null
         },
         {
             "name": "ruby",
@@ -52,7 +57,8 @@
             "defaultImports": [],
             "aliases": ["ruby", "rb", "12"],
             "classDeclaration": null,
-            "languageCode": "12"
+            "languageCode": "12",
+            "compilerArgs": null
         }, 
         {
             "name": "tcl",
@@ -61,7 +67,8 @@
             "defaultImports": [],
             "aliases": ["tcl", "32"],
             "classDeclaration": null,
-            "languageCode": "32"
+            "languageCode": "32",
+            "compilerArgs": null
         },
         {
             "name": "c++",
@@ -71,7 +78,7 @@
             "aliases": ["7", "27", "28", "c++", "cpp", "c++(clang)", "c++(vc++)", "c++(gcc)"],
             "classDeclaration": "int main()\n{\n{{code}}\n}",
             "languageCode": "28",
-            "compilerArgs": "-o a.out"
+            "compilerArgs": "-o a.exe"
         }
     ]
 }
