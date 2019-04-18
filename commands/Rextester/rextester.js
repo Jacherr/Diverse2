@@ -36,7 +36,6 @@ function parseLanguages(args, imports) {
 const superagent = require('superagent')
 
 function outputResult(msg, language, code, message, compilerArgs) {
-    msg.channel.createMessage(`compilerArgs: ${compilerArgs}`)
     superagent
         .post('https://rextester.com/rundotnet/api')
         .set({
