@@ -1,14 +1,14 @@
 let rnduser;
 const utils = require('../../utils/utils.js')
 const resetRnd = (msg) => {
-    return msg.channel.guild.members.map(i => i)[Math.floor(Math.random() * msg.channel.guild.members.size)]
+    rnduser = msg.channel.guild.members.map(i => i)[Math.floor(Math.random() * msg.channel.guild.members.size)]
 }
 module.exports = {
     label: 'parse',
     enabled: true,
     isSubcommand: false,
     generator: async (msg, args) => {
-        rnduser = resetRnd(msg)
+        resetRnd(msg)
         const objectValues = {
             server: {
                 main: '{server.{property}}',
