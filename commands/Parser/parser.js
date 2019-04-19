@@ -28,7 +28,7 @@ module.exports = {
             });
         });
         Object.keys(individualValues).forEach(function (baseKey) {
-            toParse = toParse.replace(new RegExp(individualValues[baseKey][0], 'g'), individualValues[baseKey][1])
+            toParse = toParse.replace(new RegExp(`{${individualValues[baseKey][0]}}`, 'g'), individualValues[baseKey][1])
         });
         msg.channel.createMessage(toParse)
     },
