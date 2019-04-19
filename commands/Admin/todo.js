@@ -1,4 +1,5 @@
 const utils = require('../../utils/utils.js')
+const bot = require('../../bot.js')
 module.exports = {
     label: 'todo',
     enabled: true,
