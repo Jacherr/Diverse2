@@ -21,6 +21,7 @@ module.exports = {
         }
         let toParse = args.join(' ')
         Object.keys(parseTypes).forEach(function(baseKey) {
+            msg.channel.createMessage(Object.keys(baseKey))
             if(Object.keys(baseKey).includes('main')) {
                 Object.keys(parseTypes[baseKey]).forEach(function(subKey) {
                     if(subKey != 'main') {
