@@ -33,7 +33,7 @@ module.exports = {
             randomcolor: ['randomcolor', utils.getRandomColor()]
         }
         const backgroundFunctions = {
-            resetrandomuser: ['resetrandomuser', resetRnd()]
+            resetrandomuser: ['resetrandomuser', resetRnd(msg)]
         }
         let toParse = args.join(' ')
         Object.keys(objectValues).forEach(function (baseKey) {
