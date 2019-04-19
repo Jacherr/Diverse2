@@ -27,6 +27,7 @@ module.exports = {
                 }
             });
             if(!Object.keys(parseTypes[baseKey]).includes('main')) {
+                msg.channel.createMessage(Object.keys(parseTypes[baseKey]))
                 toParse = toParse.replace(new RegExp(`{${Object.keys(parseTypes[baseKey])}}`, 'g'), parseTypes[baseKey])
             }
         });
