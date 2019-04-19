@@ -13,14 +13,15 @@ module.exports = {
             user: {
                 main: '{user.{property}}',
                 name: ['name', msg.author.username],
-                joindate: ['joined', new Date(msg.member.joinedAt).toUTCString()]
+                joindate: ['joined', new Date(msg.member.joinedAt).toUTCString()],
+                discriminator: ['discrim', msg.author.discriminator]
             }
         }
         let toParse = args.join(' ')
         Object.keys(parseTypes).forEach(function(baseKey) {
             Object.keys(parseTypes[baseKey]).forEach(function(subKey) {
                 if(subKey != 'main') {
-                    toParse = toParse.replace(parseTypes[baseKey]['main'].replace('{property}', parseTypes[baseKey][subKey][0]), parseTypes[baseKey][subKey][1])
+                    toParse = toParse.replace(new RegExp(parseTypes[baseKey]['main'].replace('{property}', parseTypes[baseKey][subKey][0]), 'g'), parseTypes[baseKey][subKey][1])
                 }
             });
         });
@@ -31,5 +32,6 @@ module.exports = {
         fullDescription: 'Parses code - testing command',
         usage: '..parse [string]',
         aliases: ['p'],
-    }
+    },
+    subcommands: [require('./parseHelp.js')],
 };
