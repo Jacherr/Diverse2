@@ -10,7 +10,7 @@ module.exports = {
             embed: {
                 author: {
                     name: bot.user.username,
-                    icon: `https://cdn.discordapp.com/avatars/490810263717675019/a7661bff9d044b43f0cf46bd2b1d49b9.png?size=256
+                    icon_url: `https://cdn.discordapp.com/avatars/490810263717675019/a7661bff9d044b43f0cf46bd2b1d49b9.png?size=256
                     `
                 },
                 title: `Todo`,
