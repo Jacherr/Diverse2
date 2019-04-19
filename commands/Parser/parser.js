@@ -17,18 +17,18 @@ module.exports = {
                 joindate: ['joined', new Date(msg.member.joinedAt).toUTCString()],
                 discriminator: ['discrim', msg.author.discriminator]
             },
-            randomcolor: utils.getRandomColor()
+            randomcolor: ['randomcolor', utils.getRandomColor()]
         }
         let toParse = args.join(' ')
         Object.keys(parseTypes).forEach(function(baseKey) {
-            Object.keys(parseTypes[baseKey]).forEach(function(subKey) {
-                if(subKey != 'main') {
-                    toParse = toParse.replace(new RegExp(parseTypes[baseKey]['main'].replace('{property}', parseTypes[baseKey][subKey][0]), 'g'), parseTypes[baseKey][subKey][1])
-                }
-            });
-            if(!Object.keys(parseTypes[baseKey]).includes('main')) {
-                msg.channel.createMessage(Object.keys(parseTypes[baseKey]))
-                toParse = toParse.replace(new RegExp(`{${Object.keys(parseTypes[baseKey])}}`, 'g'), parseTypes[baseKey])
+            if(Object.keys(baseKey).includes('main')) {
+                Object.keys(parseTypes[baseKey]).forEach(function(subKey) {
+                    if(subKey != 'main') {
+                        toParse = toParse.replace(new RegExp(parseTypes[baseKey]['main'].replace('{property}', parseTypes[baseKey][subKey][0]), 'g'), parseTypes[baseKey][subKey][1])
+                    }
+                });
+            } else {
+                toParse = toParse.replace(new RegExp(`{${parseTypes[baseKey][0]}}`,'g'), parseTypes[baseKey][1])
             }
         });
         msg.channel.createMessage(toParse)
