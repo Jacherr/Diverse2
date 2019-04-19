@@ -30,7 +30,7 @@ module.exports = {
             }
         }
         const individualValues = {
-            randomcolor: ['randomcolor', utils.getRandomColor()]
+            randomcolor: ['randomcolor', utils.getRandomColor().toString(16)]
         }
         let toParse = args.join(' ')
         Object.keys(objectValues).forEach(function (baseKey) {
