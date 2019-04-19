@@ -4,7 +4,7 @@ module.exports = {
     enabled: true,
     isSubcommand: false,
     generator: async (msg, args) => {
-        const parseTypes = {
+        const objectValues = {
             server: {
                 main: '{server.{property}}',
                 name: ['name', msg.channel.guild.name],
@@ -17,20 +17,18 @@ module.exports = {
                 joindate: ['joined', new Date(msg.member.joinedAt).toUTCString()],
                 discriminator: ['discrim', msg.author.discriminator]
             },
+        }
+        const individualValues = {
             randomcolor: ['randomcolor', utils.getRandomColor()]
         }
         let toParse = args.join(' ')
-        Object.keys(parseTypes).forEach(function(baseKey) {
-            msg.channel.createMessage(Object.keys(baseKey).join(" "))
-            if(Object.keys(baseKey).includes('main')) {
-                Object.keys(parseTypes[baseKey]).forEach(function(subKey) {
-                    if(subKey != 'main') {
-                        toParse = toParse.replace(new RegExp(parseTypes[baseKey]['main'].replace('{property}', parseTypes[baseKey][subKey][0]), 'g'), parseTypes[baseKey][subKey][1])
-                    }
-                });
-            } else {
-                toParse = toParse.replace(new RegExp(`{${parseTypes[baseKey][0]}}`,'g'), parseTypes[baseKey][1])
-            }
+        Object.keys(objectValues).forEach(function (baseKey) {
+            Object.keys(objectValues[baseKey]).forEach(function (subKey) {
+                toParse = toParse.replace(new RegExp(objectValues[baseKey]['main'].replace('{property}', objectValues[baseKey][subKey][0]), 'g'), objectValues[baseKey][subKey][1])
+            });
+        });
+        Object.keys(individualValues).forEach(function (baseKey) {
+            toParse = toParse.replace(new RegExp(individualValues[baseKey][0], 'g'), individualValues[baseKey][1])
         });
         msg.channel.createMessage(toParse)
     },
