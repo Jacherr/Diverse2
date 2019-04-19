@@ -1,3 +1,4 @@
+const utils = require('../../utils/utils.js')
 module.exports = {
     label: 'parse',
     enabled: true,
@@ -15,7 +16,8 @@ module.exports = {
                 name: ['name', msg.author.username],
                 joindate: ['joined', new Date(msg.member.joinedAt).toUTCString()],
                 discriminator: ['discrim', msg.author.discriminator]
-            }
+            },
+            randomcolor: utils.getRandomColor()
         }
         let toParse = args.join(' ')
         Object.keys(parseTypes).forEach(function(baseKey) {
@@ -24,6 +26,9 @@ module.exports = {
                     toParse = toParse.replace(new RegExp(parseTypes[baseKey]['main'].replace('{property}', parseTypes[baseKey][subKey][0]), 'g'), parseTypes[baseKey][subKey][1])
                 }
             });
+            if(!Object.keys(parsetypes[basekey].includes('main'))) {
+                toparse = toparse.replace(new RegExp(`{${Object.keys(parsetypes[baseKey])}}`, 'g'), parseTypes[baseKey])
+            }
         });
         msg.channel.createMessage(toParse)
     },
