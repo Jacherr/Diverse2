@@ -26,7 +26,7 @@ module.exports = {
                     toParse = toParse.replace(new RegExp(parseTypes[baseKey]['main'].replace('{property}', parseTypes[baseKey][subKey][0]), 'g'), parseTypes[baseKey][subKey][1])
                 }
             });
-            if(!Object.keys(parseTypes[baseKey].includes('main'))) {
+            if(!Object.keys(parseTypes[baseKey]).includes('main')) {
                 toparse = toparse.replace(new RegExp(`{${Object.keys(parseTypes[baseKey])}}`, 'g'), parseTypes[baseKey])
             }
         });
