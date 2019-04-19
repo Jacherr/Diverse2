@@ -4,6 +4,7 @@ module.exports = {
     enabled: true,
     isSubcommand: false,
     generator: async (msg, args) => {
+        let rnduser = msg.channel.guild.members.map(i => i)[Math.floor(Math.random() * msg.channel.guild.members.size)]
         const objectValues = {
             server: {
                 main: '{server.{property}}',
@@ -17,6 +18,13 @@ module.exports = {
                 joindate: ['joined', new Date(msg.member.joinedAt).toUTCString()],
                 discriminator: ['discrim', msg.author.discriminator]
             },
+            randomuser: {
+                main: '{randomuser.{property}}',
+                name: ['name', rnduser.username],
+                joindate: ['joined', new Date(rnduser.joinedAt).toUTCString()],
+                discriminator: ['discrim', rnduser.discriminator],
+                regen: ['regen', rnduser = msg.channel.guild.members.map(i => i)[Math.floor(Math.random() * msg.channel.guild.members.size)]]
+            }
         }
         const individualValues = {
             randomcolor: ['randomcolor', utils.getRandomColor()]
