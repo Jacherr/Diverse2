@@ -32,9 +32,6 @@ module.exports = {
         const individualValues = {
             randomcolor: ['randomcolor', utils.getRandomColor()]
         }
-        const backgroundFunctions = {
-            resetrandomuser: ['resetrandomuser', resetRnd(msg)]
-        }
         let toParse = args.join(' ')
         Object.keys(objectValues).forEach(function (baseKey) {
             Object.keys(objectValues[baseKey]).forEach(function (subKey) {
@@ -43,10 +40,6 @@ module.exports = {
         });
         Object.keys(individualValues).forEach(function (baseKey) {
             toParse = toParse.replace(new RegExp(`{${individualValues[baseKey][0]}}`, 'g'), individualValues[baseKey][1])
-        });
-        Object.keys(backgroundFunctions).forEach(function (baseKey) {
-            msg.channel.createMessage(backgroundFunctions[baseKey][0])
-            if(toParse.includes(`{${backgroundFunctions[baseKey][0]}}`)) backgroundFunctions[baseKey][1]
         });
         msg.channel.createMessage(toParse)
     },
