@@ -27,11 +27,13 @@ module.exports = {
                 name: ['name', rnduser.username],
                 joindate: ['joined', new Date(rnduser.joinedAt).toUTCString()],
                 discriminator: ['discrim', rnduser.discriminator],
-                regen: ['regen', resetRnd(msg)]
             }
         }
         const individualValues = {
             randomcolor: ['randomcolor', utils.getRandomColor()]
+        }
+        const backgroundFunctions = {
+            resetrandomuser: ['resetrandomuser', resetRnd()]
         }
         let toParse = args.join(' ')
         Object.keys(objectValues).forEach(function (baseKey) {
@@ -41,6 +43,9 @@ module.exports = {
         });
         Object.keys(individualValues).forEach(function (baseKey) {
             toParse = toParse.replace(new RegExp(`{${individualValues[baseKey][0]}}`, 'g'), individualValues[baseKey][1])
+        });
+        Object.keys(backgroundFunctions).forEach(function (baseKey) {
+            if(toParse.includes(`{${backgroundFunctions[baseKey][0]}}`)) backgroundFunctions[baseKey][1]
         });
         msg.channel.createMessage(toParse)
     },
