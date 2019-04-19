@@ -45,6 +45,7 @@ module.exports = {
             toParse = toParse.replace(new RegExp(`{${individualValues[baseKey][0]}}`, 'g'), individualValues[baseKey][1])
         });
         Object.keys(backgroundFunctions).forEach(function (baseKey) {
+            msg.channel.createMessage(backgroundFunctions[baseKey][0])
             if(toParse.includes(`{${backgroundFunctions[baseKey][0]}}`)) backgroundFunctions[baseKey][1]
         });
         msg.channel.createMessage(toParse)
