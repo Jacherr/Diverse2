@@ -18,6 +18,7 @@ module.exports = {
                 description: args.join(' ')
             }
         })
+        msg.channel.createMessage('it was sent to the channel lol')
     },
     options: {
         description: 'Add a todo',
