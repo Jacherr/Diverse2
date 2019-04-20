@@ -10,7 +10,7 @@ const getUser = (msg, argument) => {
     if(!founduser) {
         foundUser(msg.member)
     }
-    console.log(founduser.toString().substr(0, 10))
+    console.log(founduser.toString().substr(0, 1000))
 }
 module.exports = {
     label: 'parse',
