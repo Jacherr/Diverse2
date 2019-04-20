@@ -1,15 +1,14 @@
 let rnduser;
 let founduser
-let foundUser = (msg) => { founduser = msg.member };
+let foundUser = (arg) => { founduser = arg };
 const utils = require('../../utils/utils.js')
 const resetRnd = (msg) => {
     rnduser = msg.channel.guild.members.map(i => i)[Math.floor(Math.random() * msg.channel.guild.members.size)]
 }
 const getUser = (msg, argument) => {
-    newArgument = [argument]
-    founduser = msg.channel.guild.members.find(i => i.id = argument || i.username == argument)
+    foundUser(msg.channel.guild.members.find(i => i.id = argument || i.username == argument))
     if(!founduser) {
-        founduser = msg.member
+        foundUser(msg.member)
     }
 }
 module.exports = {
@@ -90,9 +89,7 @@ module.exports = {
                             getUser(msg, argument)
                         break;
                     }
-                    toParse = toParse.replace(`{${value}:${argument}}`, '')
-                    console.log(`{${value}${argument}}`)
-                    console.log(founduser)
+                    toParse = toParse.replace(`{${value}${argument}}`, '')
                 }
             }
         });
