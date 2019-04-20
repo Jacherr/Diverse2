@@ -71,6 +71,7 @@ module.exports = {
                     argument = stuffToParse.substr(individualValues[baseKey][0].length + 2, stuffToParse.length - 1)
                     console.log(toParse.substr(startPosition, toParse - endPosition))
                     console.log(stuffToParse.substr(individualValues[baseKey][0].length + 2, stuffToParse.length - 1))
+                    console.log('test')
                 }
             }
         });
