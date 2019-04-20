@@ -92,7 +92,8 @@ module.exports = {
                         break;
                     }
                     toParse = toParse.replace(`{${value}:${argument}}`, '')
-                    console.log(`{${value}:${argument}}`)
+                    console.log(`{${value}${argument}}`)
+                    console.log(founduser)
                 }
             }
         });
