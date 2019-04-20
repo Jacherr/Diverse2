@@ -96,6 +96,7 @@ module.exports = {
         });
         Object.keys(objectValues).forEach(function (baseKey) {
             Object.keys(objectValues[baseKey]).forEach(function (subKey) {
+                console.log(objectValues[baseKey][subKey][1])
                 toParse = toParse.replace(new RegExp(objectValues[baseKey]['main'].replace('{property}', objectValues[baseKey][subKey][0]), 'g'), objectValues[baseKey][subKey][1])
             });
         });
