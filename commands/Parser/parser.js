@@ -60,11 +60,10 @@ module.exports = {
                 console.log(value)
                 if(toParse.includes(value)) {
                     startPosition = toParse.search(`{${individualValues[baseKey][0]}:`)
-                    console.log('in')
-                    for(let i = startPosition; i < resetRnd.length; i++) {
+                    for(let i = startPosition; i < toParse.length; i++) {
                         if(toParse[i] == '}') {
                             endPosition = i - 1
-                            break
+                            i = toParse.length + 1
                         }
                     }
                     parts = individualValues[baseKey][0].split(':')
