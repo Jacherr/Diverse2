@@ -86,13 +86,13 @@ module.exports = {
                     stuffToParse = toParse.substr(startPosition, lengthOfThing + 1)
                     argument = stuffToParse.split(':')[1]
                     argument = argument.substr(0, argument.length - 1)
-                    console.log(argument)
                     switch(individualValues[baseKey][0]) {
                         case 'getuser:{arg}':
                             getUser(msg, argument)
                         break;
                     }
                     toParse = toParse.replace(`{${value}:${argument}}`, '')
+                    console.log(`{${value}:${argument}}`)
                 }
             }
         });
