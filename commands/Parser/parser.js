@@ -60,6 +60,12 @@ module.exports = {
                 if(toParse.includes(value)) {
                     startPosition = toParse.search(`{${value}`)
                     console.log(startPosition)
+                    for(let i = startPosition; i < toParse.length; i++) {
+                        if(toParse[i] == '}') {
+                            endPosition = i
+                            i = toParse.length + 1
+                        }
+                    }
                 }
             }
         });
