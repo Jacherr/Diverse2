@@ -56,8 +56,9 @@ module.exports = {
                 let startPosition
                 let endPosition
                 let argument
-                console.log(`{${individualValues[baseKey][0]}:`)
-                if(toParse.includes(`{${individualValues[baseKey][0]}:`)) {
+                let value = `${individualValues[baseKey][0]}`.substr(0, value.length - 5)
+                console.log(value)
+                if(toParse.includes(value)) {
                     startPosition = toParse.search(`{${individualValues[baseKey][0]}:`)
                     for(let i = startPosition; i < resetRnd.length; i++) {
                         if(toparse[i] == '}') {
