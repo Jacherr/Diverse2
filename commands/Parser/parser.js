@@ -6,6 +6,7 @@ const resetRnd = (msg) => {
     rnduser = msg.channel.guild.members.map(i => i)[Math.floor(Math.random() * msg.channel.guild.members.size)]
 }
 const getUser = (msg, argument) => {
+    console.log(argument)
     foundUser(msg.channel.guild.members.find(i => i.id = argument || i.username == argument))
     if(!founduser) {
         foundUser(msg.member)
