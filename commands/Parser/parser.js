@@ -8,7 +8,7 @@ const resetRnd = (msg) => {
 const getUser = (msg, argument) => {
     let newArgument;
     newArgument = [argument]
-    founduser = utils.resolveMember(msg, argument, false)
+    founduser = utils.resolveMember(msg, newArgument, false)
     if(!result) {
         founduser = msg.member
     }
