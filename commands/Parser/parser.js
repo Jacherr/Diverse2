@@ -19,7 +19,7 @@ module.exports = {
                 name: ['name', msg.channel.guild.name],
                 members: ['size', msg.channel.guild.members.size],
                 owner: ['owner', msg.channel.guild.members.get(msg.channel.guild.ownerID).username],
-                created: ['created', new Date(msg.channel.guild.createdAt)]
+                created: ['created', new Date(msg.channel.guild.createdAt).toUTCString()]
             },
             user: {
                 main: '{user.{property}}',
@@ -61,7 +61,7 @@ module.exports = {
                     startPosition = toParse.search(`{${individualValues[baseKey][0]}:`)
                     for(let i = startPosition; i < toParse.length; i++) {
                         if(toParse[i] == '}') {
-                            endPosition = i - 1
+                            endPosition = i
                             i = toParse.length + 1
                         }
                     }
