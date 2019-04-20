@@ -57,7 +57,6 @@ module.exports = {
                 let endPosition
                 let argument
                 let value = `${individualValues[baseKey][0]}`.substr(0, individualValues[baseKey][0].length - 5)
-                console.log(value)
                 if(toParse.includes(value)) {
                     startPosition = toParse.search(`{${individualValues[baseKey][0]}:`)
                     for(let i = startPosition; i < toParse.length; i++) {
@@ -66,6 +65,7 @@ module.exports = {
                             i = toParse.length + 1
                         }
                     }
+                    console.log('in')
                     parts = individualValues[baseKey][0].split(':')
                     parts[1].replace(new RegExp(`{args}`, 'g'), )
                     stuffToParse = toParse.substr(startPosition, toParse - endPosition)
