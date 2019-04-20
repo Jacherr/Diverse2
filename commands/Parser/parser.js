@@ -60,6 +60,7 @@ module.exports = {
                 console.log(value)
                 if(toParse.includes(value)) {
                     startPosition = toParse.search(`{${individualValues[baseKey][0]}:`)
+                    console.log('in')
                     for(let i = startPosition; i < resetRnd.length; i++) {
                         if(toParse[i] == '}') {
                             endPosition = i - 1
