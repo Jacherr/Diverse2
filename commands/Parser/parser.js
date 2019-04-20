@@ -6,7 +6,10 @@ const resetRnd = (msg) => {
 }
 const getUser = () => {
     foundUser = utils.resolveMember(msg, argument, false)
-    if(!result) foundUser = msg.member
+    if(!result) {
+        console.log('lol')
+        foundUser = msg.member
+    }
 }
 module.exports = {
     label: 'parse',
