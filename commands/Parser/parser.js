@@ -71,7 +71,7 @@ module.exports = {
                     lengthOfThing = endPosition - startPosition
                     stuffToParse = toParse.substr(startPosition, lengthOfThing + 1)
                     argument = stuffToParse.split(':')[1]
-                    argument = argument.substring(0, argument.length - 2)
+                    argument = argument.substr(0, argument.length - 2)
                     console.log(argument)
                 }
             }
