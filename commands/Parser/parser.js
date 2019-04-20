@@ -66,6 +66,7 @@ module.exports = {
                             i = toParse.length + 1
                         }
                     }
+                    console.log(endPosition)
                 }
             }
         });
