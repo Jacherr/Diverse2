@@ -58,7 +58,7 @@ module.exports = {
                 let argument
                 let value = `${individualValues[baseKey][0]}`.substr(0, individualValues[baseKey][0].length - 5)
                 if(toParse.includes(value)) {
-                    startPosition = toParse.search(`{${individualValues[baseKey][0]}:`)
+                    startPosition = toParse.search(`{${value}:`)
                     for(let i = startPosition; i < toParse.length; i++) {
                         if(toParse[i] == '}') {
                             endPosition = i
