@@ -71,7 +71,7 @@ module.exports = {
                     stuffToParse = toParse.substr(startPosition, endPosition)
                     let startArgPosition = stuffToParse.search(':')
                     let endArgPosition = stuffToParse.search('}')
-                    argument = stuffToParse.substr(startArgPosition + 1, endArgPosition - 1)
+                    argument = stuffToParse.substr(startArgPosition, endArgPosition)
                     console.log(stuffToParse)
                     console.log(argument)
                 }
