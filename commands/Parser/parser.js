@@ -1,14 +1,14 @@
 let rnduser;
-let foundUser = null;
+let founduser
+let foundUser = (msg) => { founduser = msg.member };
 const utils = require('../../utils/utils.js')
 const resetRnd = (msg) => {
     rnduser = msg.channel.guild.members.map(i => i)[Math.floor(Math.random() * msg.channel.guild.members.size)]
 }
 const getUser = () => {
-    foundUser = utils.resolveMember(msg, argument, false)
+    founduser = utils.resolveMember(msg, argument, false)
     if(!result) {
-        console.log('lol')
-        foundUser = msg.member
+        founduser = msg.member
     }
 }
 module.exports = {
@@ -18,6 +18,7 @@ module.exports = {
     generator: async (msg, args) => {
         let serverOwner = msg.channel.guild.members.find(i => i.id == msg.channel.guild.ownerID)
         resetRnd(msg)
+        foundUser(msg)
         const objectValues = {
             server: {
                 main: '{server.{property}}',
