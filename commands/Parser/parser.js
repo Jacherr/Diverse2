@@ -72,7 +72,7 @@ module.exports = {
                     console.log(endPosition)
                     console.log(parts.join(', '))
                     let lengthOfThing = endPosition - startPosition
-                    let stuffToParse = toParse.substr(startPosition, lengthOfThing)
+                    let stuffToParse = toParse.substr(startPosition, lengthOfThing + 1)
                     console.log(stuffToParse)
                 }
             }
