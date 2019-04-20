@@ -61,19 +61,18 @@ module.exports = {
                 let value = `${individualValues[baseKey][0]}`.substr(0, individualValues[baseKey][0].length - 5)
                 if(toParse.includes(value)) {
                     startPosition = toParse.search(`{${value}`)
-                    console.log(startPosition)
                     for(let i = startPosition; i < toParse.length; i++) {
                         if(toParse[i] == '}') {
                             endPosition = i
                             i = toParse.length + 1
                         }
                     }
-                    let parts = individualValues[baseKey][0].split(':')
-                    console.log(endPosition)
-                    console.log(parts.join(', '))
-                    let lengthOfThing = endPosition - startPosition
-                    let stuffToParse = toParse.substr(startPosition, lengthOfThing + 1)
-                    console.log(stuffToParse)
+                    parts = individualValues[baseKey][0].split(':')
+                    lengthOfThing = endPosition - startPosition
+                    stuffToParse = toParse.substr(startPosition, lengthOfThing + 1)
+                    argument = stuffToParse.split(':')[1]
+                    argument = argument.substring(0, argument.length - 2)
+                    console.log(argument)
                 }
             }
         });
