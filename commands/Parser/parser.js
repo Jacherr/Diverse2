@@ -65,13 +65,12 @@ module.exports = {
                             i = toParse.length + 1
                         }
                     }
-                    console.log('in')
                     parts = individualValues[baseKey][0].split(':')
                     parts[1].replace(new RegExp(`{args}`, 'g'), )
                     stuffToParse = toParse.substr(startPosition, toParse - endPosition)
                     argument = stuffToParse.substr(individualValues[baseKey][0].length + 2, stuffToParse.length - 1)
-                    console.log(stuffToParse)
-                    console.log(argument)
+                    console.log(toParse.substr(startPosition, toParse - endPosition))
+                    console.log(stuffToParse.substr(individualValues[baseKey][0].length + 2, stuffToParse.length - 1))
                 }
             }
         });
