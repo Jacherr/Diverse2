@@ -68,7 +68,7 @@ module.exports = {
                             i = toParse.length + 1
                         }
                     }
-                    let parts = individualValues[baseKey].split(':')
+                    let parts = individualValues[baseKey][0].split(':')
                     console.log(endPosition)
                     console.log(parts.join(', '))
                     let lengthOfThing = endPosition - startPosition
