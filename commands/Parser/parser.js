@@ -9,7 +9,7 @@ const getUser = (msg, argument) => {
     let newArgument;
     newArgument = [argument]
     founduser = utils.resolveMember(msg, newArgument, false)
-    if(!result) {
+    if(!founduser) {
         founduser = msg.member
     }
 }
