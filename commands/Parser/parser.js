@@ -1,5 +1,4 @@
 let rnduser;
-let serverOwner = msg.channel.guild.members.find(i => i.id == msg.channel.guild.ownerID)
 const utils = require('../../utils/utils.js')
 const resetRnd = (msg) => {
     rnduser = msg.channel.guild.members.map(i => i)[Math.floor(Math.random() * msg.channel.guild.members.size)]
@@ -9,6 +8,7 @@ module.exports = {
     enabled: true,
     isSubcommand: false,
     generator: async (msg, args) => {
+        let serverOwner = msg.channel.guild.members.find(i => i.id == msg.channel.guild.ownerID)
         resetRnd(msg)
         const objectValues = {
             server: {
