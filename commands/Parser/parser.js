@@ -56,7 +56,7 @@ module.exports = {
         }
         const individualValues = {
             randomcolor: ['randomcolor', utils.getRandomColor().toString(16)],
-            getuser: ['getuser:{arg}', utils.resolveMember(msg, argument, false)]
+            getuser: ['getuser:{arg}']
         }
         let toParse = args.join(' ')
         Object.keys(individualValues).forEach(function (baseKey) {
