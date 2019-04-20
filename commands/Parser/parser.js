@@ -10,7 +10,7 @@ const getUser = (msg, argument) => {
     if(!founduser) {
         foundUser(msg.member)
     }
-    console.log(foundUser.user.username)
+    console.log(founduser.user.username)
 }
 module.exports = {
     label: 'parse',
