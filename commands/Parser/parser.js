@@ -92,7 +92,7 @@ module.exports = {
                             getUser(msg, argument)
                         break;
                     }
-                    toParse = toparse.replace(`{${value}:${argument}}`, '')
+                    toParse = toParse.replace(`{${value}:${argument}}`, '')
                 }
             }
         });
