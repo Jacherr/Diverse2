@@ -56,6 +56,8 @@ module.exports = {
                 let startPosition
                 let endPosition
                 let argument
+                let lengthOfThing
+                let lengthOfArg
                 let value = `${individualValues[baseKey][0]}`.substr(0, individualValues[baseKey][0].length - 5)
                 if(toParse.includes(value)) {
                     startPosition = toParse.search(`{${value}`)
@@ -66,7 +68,12 @@ module.exports = {
                             i = toParse.length + 1
                         }
                     }
+                    let parts = individualValues[baseKey].split(':')
                     console.log(endPosition)
+                    console.log(parts.join(', '))
+                    let lengthOfThing = endPosition - startPosition
+                    let stuffToParse = toParse.substr(startPosition, lengthOfThing)
+                    console.log(stuffToParse)
                 }
             }
         });
