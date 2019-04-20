@@ -6,6 +6,8 @@ const resetRnd = (msg) => {
     rnduser = msg.channel.guild.members.map(i => i)[Math.floor(Math.random() * msg.channel.guild.members.size)]
 }
 const getUser = (msg, argument) => {
+    let newArgument;
+    newArgument = [argument]
     founduser = utils.resolveMember(msg, argument, false)
     if(!result) {
         founduser = msg.member
