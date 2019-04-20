@@ -1,5 +1,5 @@
 const Eris = require('eris');
-hide = require('./config.json')
+const hide = require('./config.json')
 
 let bot = new Eris.CommandClient(hide.token, {
     defaultImageFormat: "png",
@@ -7,7 +7,7 @@ let bot = new Eris.CommandClient(hide.token, {
     getAllUsers: true,
     messageLimit: 300 
 }, {
-    description: "Another Discord Bot",
+    description: "AAAAAAAAA",
     owner: "Jacher#9891 (233667448887312385)",
     prefix: ["..", "<@490810263717675019> ", "<@!490810263717675019> ",],
     defaultHelpCommand: false,
