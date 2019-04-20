@@ -1,10 +1,12 @@
 let rnduser;
+let foundUser = null;
 const utils = require('../../utils/utils.js')
 const resetRnd = (msg) => {
     rnduser = msg.channel.guild.members.map(i => i)[Math.floor(Math.random() * msg.channel.guild.members.size)]
 }
-const getUser = (user) => {
-
+const getUser = () => {
+    foundUser = utils.resolveMember(msg, argument, false)
+    if(!result) foundUser = msg.member
 }
 module.exports = {
     label: 'parse',
@@ -40,11 +42,17 @@ module.exports = {
                 name: ['name', serverOwner.username],
                 discriminator: ['discrim', serverOwner.discriminator],
                 created: ['created', new Date(serverOwner.createdAt).toUTCString()]
+            },
+            founduser: {
+                main: '{founduser.{property}}',
+                name: ['name', foundUser.username],
+                discriminator: ['discrim', foundUser.discriminator],
+                created: ['created', new Date(foundUser.createdAt).toUTCString()]
             }
         }
         const individualValues = {
             randomcolor: ['randomcolor', utils.getRandomColor().toString(16)],
-            getuser: ['getuser:{arg}']
+            getuser: ['getuser:{arg}', utils.resolveMember(msg, argument, false)]
         }
         let toParse = args.join(' ')
         Object.keys(individualValues).forEach(function (baseKey) {
@@ -73,6 +81,12 @@ module.exports = {
                     argument = stuffToParse.split(':')[1]
                     argument = argument.substr(0, argument.length - 1)
                     console.log(argument)
+                    switch(individualValues[baseKey][0]) {
+                        case 'getuser:{arg}':
+                            getUser()
+                        break;
+                    }
+                    toParse = toparse.replace(`{${value}:${argument}}`, '')
                 }
             }
         });
