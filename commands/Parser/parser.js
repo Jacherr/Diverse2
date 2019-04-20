@@ -6,6 +6,7 @@ const resetRnd = (msg) => {
     rnduser = msg.channel.guild.members.map(i => i)[Math.floor(Math.random() * msg.channel.guild.members.size)]
 }
 const getUser = (msg, argument) => {
+    console.log('a')
     foundUser(msg.channel.guild.members.find(i => i.id == argument || i.username == argument))
     if(!founduser) {
         foundUser(msg.member)
@@ -96,7 +97,7 @@ module.exports = {
         });
         Object.keys(objectValues).forEach(function (baseKey) {
             Object.keys(objectValues[baseKey]).forEach(function (subKey) {
-                console.log(objectValues[baseKey][subKey][1])
+                console.log('b')
                 toParse = toParse.replace(new RegExp(objectValues[baseKey]['main'].replace('{property}', objectValues[baseKey][subKey][0]), 'g'), objectValues[baseKey][subKey][1])
             });
         });
