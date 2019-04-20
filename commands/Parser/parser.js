@@ -50,9 +50,9 @@ module.exports = {
             },
             founduser: {
                 main: '{founduser.{property}}',
-                name: ['name', foundUser.username],
-                discriminator: ['discrim', foundUser.discriminator],
-                created: ['created', new Date(foundUser.createdAt).toUTCString()]
+                name: ['name', founduser.user.username],
+                discriminator: ['discrim', founduser.user.discriminator],
+                created: ['created', new Date(founduser.createdAt).toUTCString()]
             }
         }
         const individualValues = {
