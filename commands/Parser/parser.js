@@ -19,7 +19,7 @@ module.exports = {
     generator: async (msg, args) => {
         let serverOwner = msg.channel.guild.members.find(i => i.id == msg.channel.guild.ownerID)
         resetRnd(msg)
-        foundUser(msg)
+        foundUser(msg.member)
         const objectValues = {
             server: {
                 main: '{server.{property}}',
