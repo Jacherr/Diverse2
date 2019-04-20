@@ -6,7 +6,7 @@ module.exports = {
     isSubcommand: false,
     generator: async (msg, args) => {
         let command = args[0]
-        if(bot.commands[command].execute.toString()) {
+        if(bot.commands[command]) {
             let output = bot.commands[command].execute.toString()
             if (output.length > 1900) {
                 output = utils.splitMessage(output, 1900)
