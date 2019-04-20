@@ -5,7 +5,7 @@ const utils = require('../../utils/utils.js')
 const resetRnd = (msg) => {
     rnduser = msg.channel.guild.members.map(i => i)[Math.floor(Math.random() * msg.channel.guild.members.size)]
 }
-const getUser = () => {
+const getUser = (msg, argument) => {
     founduser = utils.resolveMember(msg, argument, false)
     if(!result) {
         founduser = msg.member
@@ -87,7 +87,7 @@ module.exports = {
                     console.log(argument)
                     switch(individualValues[baseKey][0]) {
                         case 'getuser:{arg}':
-                            getUser()
+                            getUser(msg, argument)
                         break;
                     }
                     toParse = toparse.replace(`{${value}:${argument}}`, '')
