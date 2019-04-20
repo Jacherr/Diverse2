@@ -68,8 +68,10 @@ module.exports = {
                     }
                     parts = individualValues[baseKey][0].split(':')
                     parts[1].replace(new RegExp(`{args}`, 'g'), )
-                    stuffToParse = toParse.substr(startPosition, endPosition + 1)
-                    argument = stuffToParse.substr(individualValues[baseKey][0].length + 2, stuffToParse.length - 1)
+                    stuffToParse = toParse.substr(startPosition, endPosition)
+                    let startArgPosition = stuffToParse.search(':')
+                    let endArgPosition = stuffToParse.search('}')
+                    argument = stuffToParse.substr(startArgPosition + 1, endArgPosition - 1)
                     console.log(stuffToParse)
                     console.log(argument)
                 }
