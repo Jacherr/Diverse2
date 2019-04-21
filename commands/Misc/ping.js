@@ -17,7 +17,7 @@ module.exports = { // export file metadata as an object to base index.js file
             let start = Date.now();
             let message = await msg.channel.createMessage('Pong!').then(msg => msg.edit(`Pong! \`${Date.now() - start}ms\``));
             results.push(`${Date.now() - start}`)
-            await message.delete()
+            message.delete()
         }
         let values = results;
         let sum = values.reduce((previous, current) => current += previous);
