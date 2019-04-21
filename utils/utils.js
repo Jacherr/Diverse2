@@ -28,11 +28,15 @@ function resolveMember(msg, args, send) {
     return botuser;
 }
 
-function resolveFlags(args) {
+function resolveFlags(args, noArgFlags) {
     let flags = []
     for(let i = 0; i < args.length - 1; i++) {
         if(args[i].startsWith('--')) {
-            flags.push({flagName: args[i].substr(2, args[i].length), flagContent: args[i + 1]})
+            if(noArgFlags.includes(args[i].substr(2, args[i].length)) || i == args.length - 1) {
+                flags.push({flagName: args[i].substr(2, args[i].length), flagContent: null})
+            } else {
+                flags.push({flagName: args[i].substr(2, args[i].length), flagContent: args[i + 1]})
+            }
             i++
         }
     }
