@@ -37,7 +37,6 @@ function resolveFlags(args, noArgFlags) {
             } else {
                 flags.push({flagName: args[i].substr(2, args[i].length), flagContent: args[i + 1]})
             }
-            i++
         }
     }
     console.log(flags)
