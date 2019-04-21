@@ -30,9 +30,9 @@ function resolveMember(msg, args, send) {
 
 function resolveFlags(args, noArgFlags) {
     let flags = []
-    for(let i = 0; i < args.length - 1; i++) {
+    for(let i = 0; i < args.length; i++) {
         if(args[i].startsWith('--')) {
-            if(noArgFlags.includes(args[i].substr(2, args[i].length)) || i == args.length - 1) {
+            if(noArgFlags.includes(args[i].substr(2, args[i].length)) || i == args.length) {
                 flags.push({flagName: args[i].substr(2, args[i].length), flagContent: null})
             } else {
                 flags.push({flagName: args[i].substr(2, args[i].length), flagContent: args[i + 1]})
