@@ -6,7 +6,7 @@ module.exports = { // export file metadata as an object to base index.js file
     isSubcommand: false, // if command is a sub command
     generator: async (msg, args) => { // (client.registerCommand(label, (<stuff>) => {}))
         let results = []
-        let repeat;
+        let repeat = 1;
         let flags = require('../../utils/utils.js').resolveFlags(args)
         if (flags.map(i => i.flagName).includes('c')) repeat = flags.find(i => i.flagName = 'c').flagContent 
         else repeat = 1
