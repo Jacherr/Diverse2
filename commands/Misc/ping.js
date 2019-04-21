@@ -4,7 +4,7 @@ module.exports = { // export file metadata as an object to base index.js file
     label: 'ping', // name of command
     enabled: true, // if command is enabled
     isSubcommand: false, // if command is a sub command
-    generator: (msg, args) => { // (client.registerCommand(label, (<stuff>) => {}))
+    generator: async (msg, args) => { // (client.registerCommand(label, (<stuff>) => {}))
         let results;
         let repeat;
         let flags = require('../../utils/utils.js').resolveFlags(args)
