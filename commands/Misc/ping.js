@@ -10,7 +10,7 @@ module.exports = { // export file metadata as an object to base index.js file
         let flags = require('../../utils/utils.js').resolveFlags(args)
         if (flags.map(i => i.flagName).includes('c')) repeat = flags.find(i => i.flagName = 'c').flagContent 
         else repeat = 1
-        let repeat = flags.find(i => i.flagName = 'c').flagContent
+        repeat = flags.find(i => i.flagName = 'c').flagContent
         if (repeat = NaN || repeat > 5 || repeat < 1) {
             return msg.channel.createMessage('Invalid count! It needs to be between 1 and 5.')
         }
