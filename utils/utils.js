@@ -28,6 +28,18 @@ function resolveMember(msg, args, send) {
     return botuser;
 }
 
+function resolveFlags(args) {
+    let toResolve = args.join(' ')
+    let flags = []
+    for(let i = 0; i < args.length - 1; i++) {
+        if(args[i].startsWith('--')) {
+            flags.push({flagName: args[i].substr(2, args[i].length), flagContent: args[i] + 1})
+            i++
+        }
+    }
+    return flags
+}
+
 function resolvePermission(permission) {
     let permsArray = { 'high': [], 'mid': [], 'low': [] };
     if (permission == undefined)
@@ -116,5 +128,6 @@ module.exports = {
     splitMessage : splitMessage,
     getRandomColor : getRandomColor,
     db : db,
-    resolvePermission : resolvePermission
+    resolvePermission : resolvePermission,
+    resolveFlags : resolveFlags
 };
