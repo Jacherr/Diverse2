@@ -36,6 +36,7 @@ function resolveFlags(args) {
             i++
         }
     }
+    console.log(flags)
     return flags
 }
 
