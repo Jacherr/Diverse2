@@ -29,7 +29,6 @@ function resolveMember(msg, args, send) {
 }
 
 function resolveFlags(args) {
-    let toResolve = args.join(' ')
     let flags = []
     for(let i = 0; i < args.length - 1; i++) {
         if(args[i].startsWith('--')) {
