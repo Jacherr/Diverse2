@@ -13,7 +13,7 @@ module.exports = { // export file metadata as an object to base index.js file
         if (repeat = NaN || repeat > 5 || repeat < 1) {
             return msg.channel.createMessage('Invalid count! It needs to be between 1 and 5.')
         }
-        console.log(repeat)
+        console.log(flags.map(i => i.flagName).includes('c'))
         for (let i = 0; i < repeat; i++) {
             let start = Date.now();
             let message = await msg.channel.createMessage('Pong!').then(msg => msg.edit(`Pong! \`${Date.now() - start}ms\``));
