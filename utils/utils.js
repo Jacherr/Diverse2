@@ -33,7 +33,7 @@ function resolveFlags(args) {
     let flags = []
     for(let i = 0; i < args.length - 1; i++) {
         if(args[i].startsWith('--')) {
-            flags.push({flagName: args[i].substr(2, args[i].length), flagContent: args[i] + 1})
+            flags.push({flagName: args[i].substr(2, args[i].length), flagContent: args[i + 1]})
             i++
         }
     }
