@@ -20,7 +20,7 @@ module.exports = {
         let serverOwner = msg.channel.guild.members.find(i => i.id == msg.channel.guild.ownerID)
         resetRnd(msg)
         foundUser(msg.member)
-        let objectValues;
+        let objectValues = {};
         const individualValues = {
             randomcolor: ['randomcolor', utils.getRandomColor().toString(16)],
             getuser: ['getuser:{arg}']
